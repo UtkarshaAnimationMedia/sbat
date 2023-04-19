@@ -1,0 +1,42 @@
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff; 
+  --headerFooter: #5e0000; 
+  --orange: #F26938;
+  --menu-bg : #E12823;
+  --page-wrapper-bg-color : #FFEFE2;  /*   Page wrapper bg color   */
+  --home-card-bg : #FDF295;  /*   Home Page Card flash news, punchagam, upcoming events   */
+  --active-devotee-dashboard-menu : #760010;
+  --devotee-dashboard-menu-color : #fff;
+  --home-header-subheading-color : #F6D700;
+  --main-heading-color : #44233B;
+}
+
+
+.title{
+    color: var(--orange)!important;
+}
+.header-footer-bg {
+  background-color: var(--headerFooter)!important;
+  color: var(--white)!important;
+}
+.footer-icon-color{
+	background-color: var(--headerFooter)!important;
+	color: var(--white)!important;
+}
+
+#footer .footer-top h4 {
+ color: var(--white)!important;
+}
+
+#footer .footer-top .footer-links ul a {
+    color: var(--white)!important;
+}
+
+.footer-contact p a {
+    color: var(--white);!important;
+}
+
+.menu-bg{
+    background-color: var(--menu-bg)!important;
+}

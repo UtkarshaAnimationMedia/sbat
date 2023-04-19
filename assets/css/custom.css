@@ -1,0 +1,225 @@
+
+#loginBtn{
+  color: #ffffff;
+  border-radius: 9px!important;
+  border-color: white;
+  background: #008080 !important;
+  padding: 10px 40px;
+  box-shadow: 1px 1px 10px #7e455561;
+}
+
+#emailotpntn{
+ color: #ffffff;
+ border-radius: 9px!important;
+ border-color: white;
+ background: #008080 !important;
+ padding: 10px 40px;
+ box-shadow: 1px 1px 10px #7e455561;
+}
+.verifyBtn{
+ color: #ffffff;
+ border-radius: 9px!important;
+ border-color: white;
+ background: #008080 !important;
+ padding: 10px 40px;
+ box-shadow: 1px 1px 10px #7e455561;
+}
+#signupBtn{
+  color: #ffffff;
+  border-radius: 9px!important;
+  border-color: white;
+  background: #008080 !important;
+  padding: 10px 40px;
+  box-shadow: 1px 1px 10px #7e455561;
+}
+.btnClose{
+  color: #ffffff;
+  border-radius: 9px!important;
+  border-color: white;
+  background: #AA1F32 !important;
+  padding: 10px 40px;
+  box-shadow: 1px 1px 10px #7e455561;
+}
+button{
+ background-color:#530A3A;border:0;    padding: 12px 23px 12px 23px;
+}
+
+/*  For Hide Arrow from input type number*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.contact-form {
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form .form-input,.form-select,
+.form-text-area {
+  background-color: white;
+  height: 50px;
+}
+
+.contact-form .form-text-area {
+  background-color: white;
+  height: auto;
+}
+
+.contact-form .form-control::placeholder {
+  color: #aeb4b9;
+  font-weight: 500;
+  opacity: 1;
+}
+
+.contact-form .form-control:-ms-input-placeholder {
+  color: #aeb4b9;
+  font-weight: 500;
+}
+
+.contact-form .form-control::-ms-input-placeholder {
+  color: #aeb4b9;
+  font-weight: 500;
+}
+
+.contact-form .form-control:focus {
+  border-color: #7D1456;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px #7D1456;
+}
+.form-select{
+  color:black ;
+}
+.contact-form .description {
+  color: #aeb4b9;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contact-form .submit-button-wrapper {
+  text-align: center;
+}
+
+.contact-form .submit-button-wrapper input {
+  border: none;
+  border-radius: 4px;
+  background-color: #7D1456;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 60px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.contact-form .submit-button-wrapper input:hover {
+  background-color: #7D1456;
+}
+
+
+
+/*VOLUNTEER FORM CSS*/
+
+
+.fa2{
+  margin-top: 10px!important;
+  padding: 1px!important;
+}
+legend {
+  font-size: 14px;
+  font-weight: 500;
+}
+fieldset {
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0px;
+  padding-inline-start: 20px;
+  padding-inline-end: 0px;
+  padding-block-end: 11px;
+  margin-bottom: 19px;
+
+}
+.border {
+  border: 1px solid #000000 !important;
+  border-radius: 0.25rem;
+  padding: 0px 23px;
+}
+.border-2 {
+  border: 2px solid #000000 !important;
+  border-radius: 0.25rem;
+  padding: 0px 23px;
+}
+
+.legend-outer {
+  font-size: 23px;
+  font-weight: 500;
+  padding: 4px;
+}
+.legend-inner{
+  margin: revert;
+  padding: 4px;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: #ffffff;
+  opacity: 1;
+}
+.contact-form .form-control:focus {
+  border-color: transparent;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%), 0 0 8px #7d145600;
+}
+.form-select{
+  height: 37px;
+  color:#adb3b8 ;
+  font-size: 16px;
+}
+
+
+
+
+.checkoutbtn:hover{
+  box-shadow: 1px 1px 10px #910301!important;
+}
+
+
+.bottomborder:after {
+  content: '';
+  display: block;
+  position: relative;
+  width: 150px;
+  border: 0.02rem solid #D9950B;
+  margin-top: 8px;
+  margin: 0 auto;
+  background: #D9950B;
+}
+
+
+.bottomborder2:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 150px;
+  border: 0.02rem solid #D9950B;
+  margin-top: 8px;
+  margin: 0 auto;
+  background: #D9950B;
+}
+
+#AdminLogin{
+  color: #ffffff;
+  border-radius: 9px!important;
+  border-color: white;
+  background: #008080 !important;
+  padding: 10px 40px;
+  box-shadow: 1px 1px 10px #7e455561;
+}
