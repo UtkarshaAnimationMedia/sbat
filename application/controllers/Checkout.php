@@ -15,6 +15,11 @@ class Checkout extends CI_Controller {
 		$data['GeneralSettings'] = GeneralSettings();
 
 
+    $data['GeneralSettings']['currencySymbol'] = isset($currency['GeneralSettings']['currencySymbol']) ? (CheckEmptyNullVar($currency['GeneralSettings']['currencySymbol']) != '' ? $currency['GeneralSettings']['currencySymbol'] : '$' ) : '$';
+
+
+
+
 		// print_r($data['GeneralSettings']); die();
 		if (!empty($this->session->userdata('logged_in')) && $this->session->userdata('logged_in') == 1) {
 			
@@ -32,8 +37,6 @@ class Checkout extends CI_Controller {
 				}else if ($page == 'events'){
 					$data['session_data'] = 'child_events';
 				}
-
-
 
 
 

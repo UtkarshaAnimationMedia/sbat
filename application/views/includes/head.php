@@ -12,7 +12,7 @@
   <meta content="Sri Venkateswara Temple" name="description">
   <meta content="Sri Venkateswara Temple" name="keywords">
 
-  <!-- Favicons -->
+ <!-- Favicons -->
   <link href="<?=base_url('assets/img/favicon.ico'); ?>" rel="icon">
   <link href="<?=base_url('assets/img/apple-touch-icon.png');?>" rel="apple-touch-icon">
   <!-- Vendor CSS Files -->
@@ -78,7 +78,58 @@
 
   <div class="gtranslate_wrapper"></div>
   <script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"languages":["en","hi","ta","pa","ml","te","gu","kn"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa"}}</script>
-  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <script src="<?=base_url('assets/js/translator-float.js')?>" defer></script>
+  <!-- ==========Language Translator Scripts============= -->
+
+
+
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSC808TPBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-TSC808TPBJ');
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+
+
+  
 
   <link href="<?=base_url('assets/css/customColorCode.css');?>" rel="stylesheet">
+  <style type="text/css">
+    .form-check-input[type=checkbox] {
+      border-radius: 11px;
+      padding: 16px;
+      font-size: 18px;
+      border: 2px solid #ffc107;
+      margin-right: 30px;
+    }
+    .form-check-input:checked[type="checkbox"] {
+      background-color: #005d4b;
+      border-radius: 11px;
+      padding: 16px;
+      font-size: 18px;
+      border: 2px solid #ffc107;
+    }
+    .form-check-input:checked[type="checkbox"] + .form-check-label::before {
+      background-color: #005D4B;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .form-check-input:focus {
+      border-color: 2px solid #ffc107;
+      outline: 0!important;
+      box-shadow: none!important;
+    }
+
+
+    .ui-icon,.ui-widget-content .ui-icon {
+      background-image: url("<?=base_url('assets/js/ui-icons_444444_256x240.png'); ?>")!important;
+    }
+    .ui-widget-header .ui-icon {
+      background-image: url("<?=base_url('assets/js/ui-icons_444444_256x240.png'); ?>")!important;
+    }
+  </style>
 </head>

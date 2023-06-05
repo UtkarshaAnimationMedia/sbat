@@ -230,7 +230,6 @@ $firstname = implode(" ", $parts);
 								<legend  class="legend-inner float-none w-auto">No. of Children</legend>
 								<div class="input-group">
 									<input name="children" type="number"  class="form-control border-dark mb-1 " placeholder="Children">
-
 								</div>
 							</fieldset>
 						</div>

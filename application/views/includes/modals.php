@@ -4,13 +4,11 @@
     display:block;margin-left: auto;margin-right: auto;font-size:16px;font-family: 'Open Sans', sans-serif!important;font-weight: 800;color: #7D1456;
   }
 
-  /*  For Hide Arrow from input type number*/
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
 /* Firefox */
 input[type=number] {
@@ -48,7 +46,7 @@ if ($this->session->userdata('logged_in') == 1 ) { $modalClbtn = ''; }
         
         <div class="modal-body p-0">
           <div class="container">
-            <img src="<?=base_url('assets/img/logo-1.png') ?>" class="img-fluid my-3" height="120px" width="150px" style="display: block;margin-left: auto;margin-right: auto;">
+            <img src="<?=$header_data[0]['leftImage'] ? ApiBaseUrl()['url'].'/'.@$header_data[0]['leftImage'] : base_url('assets/img/logo-1.png')?>" class="img-fluid my-3" height="120px" width="150px" style="display: block;margin-left: auto;margin-right: auto;">
             <div class="row" style="text-align:center;">
               <div class="col-md-12">
                 <span id="signup-error-flashmsg" class="text-center" style="color: red;"></span>
@@ -87,7 +85,7 @@ if ($this->session->userdata('logged_in') == 1 ) { $modalClbtn = ''; }
                       <div class="col-md-12 mb-4">
                         <div class="form-outline">
                           <label class="form-label" for="signupPhoneNumber">Phone Number</label>
-                          <input type="tel" placeholder="Ex. +1 (702) 123-4567" minlength="10" maxlength="15" id="signupPhoneNumber" name="phone" class="phone-with-country-code form-control" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57 || event.charCode==43 || event.charCode==13 ))" oninput="nonEditCuntryCode1(this);" value="+1" minlength="10"  autocomplete="none" required>
+                          <input type="tel" placeholder="Ex. +1 123-456-7890" minlength="10" maxlength="15" id="signupPhoneNumber" name="phone" class="phone-with-country-code form-control" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57 || event.charCode==43 || event.charCode==13 ))" oninput="nonEditCuntryCode1(this);" value="+1" minlength="10"  autocomplete="none" required>
                           </div>
                         </div>
                       </div>
@@ -124,6 +122,8 @@ if ($this->session->userdata('logged_in') == 1 ) { $modalClbtn = ''; }
  </div>
  <!-- End Registration Modal -->
 
+
+
  <!-- Login  Modal -->
  <div class="modal fade modal-danger modal-outline" id="loginModal" tabindex="-1"  role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -138,8 +138,8 @@ if ($this->session->userdata('logged_in') == 1 ) { $modalClbtn = ''; }
          <button type="button" class="btn-close modalCloseBtn <?= $modalClbtn; ?>" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body p-0">
-         <img src="<?=base_url('assets/img/logo-1.png') ?>" class="img-fluid my-3" height="120px" width="150px" style="display: block;margin-left: auto;margin-right: auto;">
-         <style type="text/css">
+        <img src="<?=ApiBaseUrl()['url'].$header_data[0]['leftImage']?>" class="img-fluid mb-4" height="100px" width="100px" style="display: block;margin-left: auto;margin-right: auto;">
+        <style type="text/css">
           .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
             color: #ffffff;
             background-color: #008080;
@@ -153,108 +153,112 @@ if ($this->session->userdata('logged_in') == 1 ) { $modalClbtn = ''; }
         <div class="row">
           <h5 class="text-center bottomborder modatTitle" >SIGN IN</h5>
           <div class="col-md-12 mt-4">
-            
 
-            <ul id="tabs" class="nav nav-tabs nav-fill">
-              <li class="nav-item"><a href="#AdministratorTab" id="AdministratorTab" tab-name="Management" data-toggle="tab" class="nav-link rounded-0 active border-0 m-0" onclick="AuthenticateUser('Management')">Management</a></li>
-              <li class="nav-item"><a href="#devoteeTab" id="devoteeTab" tab-name="Devotee" data-toggle="tab" class="nav-link rounded-0 border-0 m-0" onclick="AuthenticateUser('Devotee')">Devotee</a></li>
 
-            </ul>
 
-             <div class="container mt-3">
-              <div class="row g-0">
-                <div class="col-xl-12">
-                  <div class="row" style="text-align:center;">
-                    <div class="col-md-12">
-                      <span id="login-error-flashmsg" class="text-center" style="color: red;"></span>
-                      <span id="login-success-flashmsg" class="text-center" style="color: green;"></span>
-                    </div>
+           <ul id="tabs" class="nav nav-tabs nav-fill">
+            <li class="nav-item"><a href="#AdministratorTab" id="AdministratorTab" tab-name="Management" data-toggle="tab" class="nav-link rounded-0 border-0 m-0">Management</a></li>
+            <li class="nav-item"><a href="#devoteeTab" id="devoteeTab" tab-name="Devotee" data-toggle="tab" class="nav-link rounded-0 active border-0 m-0">Devotee</a></li>
+          </ul>
+
+          <div class="container mt-3">
+            <div class="row g-0">
+              <div class="col-xl-12">
+                <div class="row" style="text-align:center;">
+                  <div class="col-md-12">
+                    <span id="login-error-flashmsg" class="text-center" style="color: red;"></span>
+                    <span id="login-success-flashmsg" class="text-center" style="color: green;"></span>
                   </div>
                 </div>
               </div>
-              <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-xl-12">
-                  <div class="row">
-                    <div class="col-xl-12">
-                      <span class="email_section">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <input type="email" id="loginEmail" placeholder="Enter your email Id." name="email" class="form-control" data-onclick="<?=base_url('send-email-otp');?>" style="margin: 0px;" oninput="loginBy('email');"  autocomplete="none" />
-                            <span class="otpsendmsg" style="color: green; font-size: 11px;margin-left: 12px;"></span>
-                          </div>
-                        </div>
-
-                      </span>
-
-                      <span class="mobile_section">
-                        <div class="text-center mb-3">--OR--</div>
-                        <div class="row" >
-                          <div class="col-md-12 mb-4 ">
-
-                            <input type="tel" placeholder="Ex. +1 (702) 123-4567"  id="loginPhoneNumber" name="phone" class="phone-with-country-code form-control" data-onclick="<?=base_url('send-email-otp');?>" minlength="10" maxlength="15" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57 || event.charCode==43  || event.charCode==13 ))" oninput="nonEditCuntryCode(this);loginBy('mobile')" value="+1" minlength="10" autocomplete="none">
-                              <span class="otpsendmsg_number" style="color: green; font-size: 18px;margin-left: 12px;"></span>
-                            </div>
-
-
-                            <div class="col-md-12 mb-4">
-                             <center>
-                               <button id="emailotpntn" class="btn btn-success" onclick="sendEmailOtp('<?=base_url('send-email-otp')?>')">Login</button>
-                             </center>
-                           </div>
-                         </div>
-                       </span>
-
-                       <div class="row vOtpBox" id="otptoggle" style="display:none;">
-                        <div class="col-md-8 mb-4">
-                          <input type="number" id="emailotp" name="emailotp" placeholder="Please enter OTP to continue." class="form-control" onkeypress="if(event.charCode==13 ){ verifyEmailOtp('<?=base_url('email-otp-verification');?>');  }"  required  />
-                        </div>
-                        <div class="col-md-4 mb-4">
-                          <button id="emailotpverifybtn" class="btn btn-success verifyBtn" onclick="verifyEmailOtp('<?=base_url('email-otp-verification');?>')">VERIFY</button>
-                        </div>
-                      </div>
-                      <div class="row mobile-section otpmobilebox vOtpBox" id="mobiletoggle"  style="display:none;">
-                        <div class="col-md-8 mb-4">
-                          <input type="number" id="mobileotp" name="mobileotp" placeholder="Please enter OTP to continue." class="form-control" />
-                          <span class="otpsendmsg_number_error" style="color: red; font-size: 18px;margin-left: 12px;"></span>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                          <button id="mobileotpverifybtn" class="btn btn-success verifyBtn" onclick="submitPhoneNumberAuthCode()">VERIFY</button>
-                        </div>
-                      </div>
+            </div>
+            <div class="row d-flex justify-content-center align-items-center">
+              <div class="col-xl-12">
+                <div class="row">
+                  <div class="col-xl-12">
+                    <span class="email_section">
                       <div class="row">
-                        <div class="col-md-12" id="recaptcha-container"></div>
+                        <div class="col-md-12">
+                          <input type="email" id="loginEmail" placeholder="Enter your email Id." name="email" class="form-control" data-onclick="<?=base_url('send-email-otp');?>" style="margin: 0px;" oninput="loginBy('email');"  autocomplete="none" />
+                          <span class="otpsendmsg" style="color: green; font-size: 11px;margin-left: 12px;"></span>
+                        </div>
                       </div>
+
+                    </span>
+
+                    <span class="mobile_section">
+                      <div class="text-center mb-3">--OR--</div>
+                      <div class="row" >
+                        <div class="col-md-12">
+
+                          <input type="tel" placeholder="Ex. +1 (702) 123-4567"  id="loginPhoneNumber" name="phone" class="phone-with-country-code form-control" data-onclick="<?=base_url('send-email-otp');?>" minlength="10" maxlength="15" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57 || event.charCode==43  || event.charCode==13 ))" oninput="nonEditCuntryCode(this);loginBy('mobile')" value="+1" minlength="10" autocomplete="none">
+                            <span class="otpsendmsg_number" style="color: green; font-size: 18px;margin-left: 12px;"></span>
+                          </div>
+
+
+                          <div class="col-md-12 my-4">
+                           <center>
+                             <button id="emailotpntn" class="btn btn-success" onclick="sendEmailOtp('<?=base_url('send-email-otp')?>')">Login</button>
+                           </center>
+                         </div>
+                       </div>
+                     </span>
+
+                     <div class="row vOtpBox" id="otptoggle" style="display:none;">
+                      <div class="col-md-8">
+                        <input type="number" id="emailotp" name="emailotp" placeholder="Please enter OTP to continue." class="form-control" onkeypress="if(event.charCode==13 ){ verifyEmailOtp('<?=base_url('email-otp-verification');?>');  }"  required  />
+
+
+                        <div id="timerMessage" style="font-size: 13px;">You can resend OTP after <span id="timeCounter2">30</span> Seconds</div>
+                        <a id="resendButton" style="color:red; padding: 10px;" onclick="sendEmailOtp('<?=base_url('send-email-otp')?>')" href="javascript:void(0)" disabled>Resend OTP</a>
+                        <span id="timerCounter" style="font-size: 13px;"></span>
+                      </div>
+                      <div class="col-md-4 mb-4">
+                        <button id="emailotpverifybtn" class="btn btn-success verifyBtn" onclick="verifyEmailOtp('<?=base_url('email-otp-verification');?>')">VERIFY</button>
+                      </div>
+                      <div class="col-md-4 mb-4">
+                      </div>
+                    </div>
+                    <div class="row mobile-section otpmobilebox vOtpBox" id="mobiletoggle"  style="display:none;">
+                      <div class="col-md-8 mb-4">
+                        <input type="number" id="mobileotp" name="mobileotp" placeholder="Please enter OTP to continue." class="form-control" />
+                        <span class="otpsendmsg_number_error" style="color: red; font-size: 18px;margin-left: 12px;"></span>
+                      </div>
+                      <div class="col-md-4 mb-4">
+                        <button id="mobileotpverifybtn" class="btn btn-success verifyBtn" onclick="submitPhoneNumberAuthCode()" onkeydown="if(event.keyCode === 13) document.getElementById('mobileotpverifybtn').click()">VERIFY</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12" id="recaptcha-container"></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-      
-
-
-
-
+          </div>
+        </div>
       </div>
     </div>
-
-  </div>
-  <div class="d-flex justify-content-center text-center modal-footer">
-    <div class="row">
-      <div class="col-md-12">
-        <button type="submit" class="btn btn-warning" id="loginBtn">LOGIN</button>
-        <button type="button" class="loginBtnClose btnClose btn btn-danger ms-2" data-dismiss="modal" hidden>CLOSE</button> 
-      </div>
-      <div class="col-md-12 my-4">   
-        <a href="javascript:void()" onclick="openSignupModal()">New User? Sign Up</a>
+    <div class="d-flex justify-content-center text-center modal-footer">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-warning" id="loginBtn">LOGIN</button>
+          <button type="button" class="loginBtnClose btnClose btn btn-danger ms-2" data-dismiss="modal" hidden>CLOSE</button> 
+        </div>
+        <div class="col-md-12 my-4">   
+          <a href="javascript:void()" onclick="openSignupModal()" id="signupLink" style="display:none">New User? Sign Up</a>
+        </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
 
 </div>
 </div>
 </div>
 <!-- End Login Modal -->
+
+
+
 <?php $serviceDetails = $this->session->userdata('serviceDetails')?>
 <!-- Payment Modal -->
 <div class="modal fade" id="paymentModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
@@ -425,7 +429,32 @@ if (isset($userSession)){?>
 <input type="hidden" name="fromPage" id="fromPage">
 
 
+<script>
+  // show or hide signup link based on active tab
+  const tabs = document.querySelectorAll('#tabs .nav-link');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const activeTab = document.querySelector('.nav-link.active');
+      if (activeTab.getAttribute('tab-name') === 'Devotee') {
+        document.getElementById('signupLink').style.display = 'none';
+      } else {
+        document.getElementById('signupLink').style.display = 'block';
+      }
+    });
+  });
 
 
+  const myInputField = document.getElementById('mobileotp');
+  const myButton = document.getElementById('mobileotpverifybtn');
 
+  myInputField.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      myButton.click();
+    }
+  });
 
+  const resendButton = document.getElementById('resendButton');
+  const timerCounter = document.getElementById('timerCounter');
+  const timerMessage = document.getElementById("timerMessage");
+  const timeCounter2 = document.getElementById("timeCounter2");
+</script>

@@ -19,20 +19,18 @@ class Forms extends CI_Controller {
 
 	public function AddVolunteers(){
 
-
-		$name = $this->input->post('vol_name');
-		$phone = $this->input->post('vol_phone');
+		$name = $this->input->post('name');
+		$phone = $this->input->post('volunteerPhone');
 		$new_phone = str_replace('-', '', $phone);
-		$email = $this->input->post('vol_email');
-		$city = $this->input->post('vol_city');
-		$state = $this->input->post('vol_state');
-		$country = $this->input->post('vol_country');
-		$zipcode = $this->input->post('vol_zipcode');
+		$email = $this->input->post('email');
+		$city = $this->input->post('city');
+		$state = $this->input->post('state');
+		$country = $this->input->post('country');
+		$zipcode = $this->input->post('zipcode');
 		$VolunteerArea = $this->input->post('VolunteerArea');
-		$address = $this->input->post('vol_address');
+		$address = $this->input->post('address');
 
 
-		// print_r($this->input->post()); die();
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
@@ -67,7 +65,7 @@ class Forms extends CI_Controller {
 		}
 		curl_close($ch);
 
-		// print_r($response); die();
+		// print_r($response);
 
 		if ($response->statusCode == 1) {
 			$this->session->set_flashdata('success','<div class="alert alert-success alert-dismissible fade show text-center">Volunteer Details Added Successfully!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
@@ -86,6 +84,15 @@ class Forms extends CI_Controller {
 		$data['page'] = 'Membership-Form';
 		$data['title'] = 'Membership Form';
 		$this->load->view('membership',$data);
+	}
+
+
+
+	public function PujaSponsorshipForm()
+	{
+		$data['page'] = 'Puja Sponsorship Form';
+		$data['title'] = 'Puja Sponsorship Form';
+		$this->load->view('puja-sponsorship-form',$data);
 	}
 
 }

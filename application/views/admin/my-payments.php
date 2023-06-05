@@ -5,9 +5,9 @@
 
 <div class="container my-3">
 	<div class="table-responsive">
-		<table id="myDonations" class="table">
-			<thead>
-				<tr style="background-color:#F1F1F1">
+		<table id="myDonations" class="table bg-white">
+			<thead style="background-color: #70011D; color: white;">
+				<tr>
 					<th>Token</th>
 					<th>Txn&nbsp;ID</th>
 					<th>Service&nbsp;Name</th>
@@ -47,7 +47,12 @@
 	$(document).ready(function() {
 		$("#heading").text('My Payments');
 		$('#myDonations').DataTable( {
-			order: [[ 0, 'desc' ]]
+			order: [[ 0, 'desc' ]],
+			"searching": false,
+			"lengthChange": false,
+			language: {
+				emptyTable: "No Payments Available to show.."
+			}
 		} );
 	} );
 	

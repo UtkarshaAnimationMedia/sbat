@@ -15,7 +15,7 @@
 
 	$(document).ready(function(){
 
-		$("#dropdown-list").html('<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="filter-bookings" data-bs-toggle="dropdown" aria-expanded="false">DAILY ORDERS</button><ul class="dropdown-menu" aria-labelledby="filter-bookings"><li><a class="dropdown-item" href="#" data-value="DAILY ORDERS">DAILY ORDERS</a></li></ul></div>');
+		$("#dropdown-list").html('<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="filter-bookings" data-bs-toggle="dropdown" aria-expanded="false">DAILY ORDERS</button><ul class="dropdown-menu filter-bookings" aria-labelledby="filter-bookings"><li><a class="dropdown-item" href="#" data-value="DAILY ORDERS">DAILY ORDERS</a></li></ul></div>');
 
 		var selectedValue = 'DAILY ORDERS';
 
@@ -34,7 +34,12 @@
 			success: function(data) {
 				$("#TableData").html(data);
 				$('#myBookings').DataTable( {
-					order: [[ 0, 'desc' ]]
+					order: [[ 0, 'desc' ]],
+					"searching": false,
+					"lengthChange": false,
+					language: {
+						emptyTable: "No Orders Available to show.."
+					}
 				} );
 
 				if (selectedValue == 'DAILY ORDERS') {

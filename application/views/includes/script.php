@@ -211,8 +211,6 @@
          loader.off();
          var details = JSON.parse(serviceDetails);
 
-              // console.log(details._id);
-
 
          if (serviceDetails != '') {
           $("#servicesDetails").html();
@@ -378,99 +376,158 @@ function openSignupModal(){
 
 
 function sendEmailOtp(url){
- loader.on();
-    //test
- var email = $('#loginEmail').val();
- var phoneval = $('#loginPhoneNumber').val();
- var phoneLength = $('#loginPhoneNumber').val().length;
-
- if (email == "" && phoneLength < 12) {
-  $("#login-error-flashmsg").html("Please enter valid email or valid mobile number.");
-  setTimeout(function(){$("#login-error-flashmsg").text('');},6000);
-  loader.off();
-
-}else{
-  $("#login-error-flashmsg").html("");
-
-  if(email==""){
-    event.preventDefault();
-    LoginUser('<?=base_url('signin')?>');
-    loader.off();
-  }else{
-
-   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-   if(email.match(mailformat))
-   {
-    var btn = document.getElementById('emailotpntn');
-    btn.disabled =true;
-    btn.innerText = 'SENDING';
-
-
-    event.preventDefault();
-    var url = url;
-    var email = $('#loginEmail').val();
-   //alert(email);
-    $.ajax({
-      url: url,
-      type: "POST",
-      dataType: "json",
-      data : {'email' : email},
-      success: function(data) 
-      {
-       loader.off();
-
-
-       if (data['statusCode'] == '1') {  
 
 
 
 
-        $("#emailotpntn").hide();
-        $(".mobile_section").hide();
+  let timeLeft = 30; // 2 minutes in seconds
+  let minutes, seconds;
 
-        btn.disabled =true;
-        btn.innerText = 'SENT';
-            // $('#otptoggle').toggle();
-        $('#otptoggle').css('display','inline-flex');
-        var btn2 = document.getElementById('emailotpverifybtn');
-        btn2.disabled =false;
-        btn.disabled =true;
-        $("#emailotp").focus();
-        $("#login-success-flashmsg").text("OTP send on this email id!");
-        $(".mobile-section").hide();
-        setTimeout(function(){$("#login-success-flashmsg").text('');},6000);
+// Display timer message for first 2 minutes
+  timerMessage.style.display = "block";
+  resendButton.style.display = "none";
 
-      }
-      else if (data['statusCode'] == '2') {
-       btn.disabled =false;
-       btn.innerText = 'LOGIN';
-       $("#login-success-flashmsg").html("<i class='fa fa-exclamation-triangle text-danger'> <b class='text-danger'>Technical Error! Please Login With Phone Number or Contact Admin.</b>");
-     }else{
-      $("#loginModal").modal('hide');
-      $("#signupModal").modal('show');
+  const countdown = setInterval(() => {
+    minutes = Math.floor(timeLeft / 60);
+    seconds = timeLeft % 60;
+    timeCounter2.innerText = `${minutes}:${seconds.toString().padStart(2, "0")}`;
 
-      $("#signupEmail").val(email);
+    timeLeft--;
 
-                 // $("#signupPhoneNumber").val(phoneval);
-
-      $("#signup-error-flashmsg").html("This email id is not registerd please signup.");
-      setTimeout(function(){$("#signup-error-flashmsg").text('');},6000);
+    if (timeLeft === 0) {
+      clearInterval(countdown);
+      timerMessage.style.display = "none";
+      resendButton.style.display = "block";
+      resendButton.disabled = false;
     }
-  }             
-});
+}, 1000); // Delay of 1 second (1000 milliseconds) between each update
+
+
+
+
+
+  loader.on();
+    //test
+  var email = $('#loginEmail').val();
+  var phoneval = $('#loginPhoneNumber').val();
+  var phoneLength = $('#loginPhoneNumber').val().length;
+
+  if (email == "" && phoneLength < 12) {
+    $("#login-error-flashmsg").html("Please enter valid email or valid mobile number.");
+    setTimeout(function(){$("#login-error-flashmsg").text('');},6000);
+    loader.off();
 
   }else{
-   btn.disabled =false;
-   btn.innerText = 'LOGIN';
-   $("#login-error-flashmsg").html("Please enter a valid email address.");
-   setTimeout(function(){$("#login-error-flashmsg").text('');},6000);
-   loader.off();
- }
+    $("#login-error-flashmsg").html("");
+
+    if(email==""){
+      event.preventDefault();
+      LoginUser('<?=base_url('signin')?>');
+      loader.off();
+    }else{
+
+     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+     if(email.match(mailformat))
+     {
+      var btn = document.getElementById('emailotpntn');
+      btn.disabled =true;
+      btn.innerText = 'SENDING';
+
+
+      event.preventDefault();
+      var url = url;
+      var email = $('#loginEmail').val();
+
+      const activeLoginTab = $('.nav-link.active');
+      const LoginTabName = activeLoginTab.attr('tab-name');
+
+
+   //alert(email);
+      $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "json",
+        data : {'email' : email, 'LoginTabName' : LoginTabName},
+        success: function(data) 
+        {
+         loader.off();
+
+
+         if (data['statusCode'] == '1') {  
+
+
+
+
+          $("#emailotpntn").hide();
+          $(".mobile_section").hide();
+
+          btn.disabled =true;
+          btn.innerText = 'SENT';
+            // $('#otptoggle').toggle();
+          $('#otptoggle').css('display','inline-flex');
+          var btn2 = document.getElementById('emailotpverifybtn');
+          btn2.disabled =false;
+          btn.disabled =true;
+
+
+          $("#AdministratorTab").addClass('disabled');
+          $("#devoteeTab").addClass('disabled');
+
+
+          $("#emailotp").focus();
+          $("#login-success-flashmsg").text("OTP send on this email id!");
+          $(".mobile-section").hide();
+          setTimeout(function(){$("#login-success-flashmsg").text('');},6000);
+
+        }
+        else if (data['statusCode'] == '2') {
+         btn.disabled =false;
+         btn.innerText = 'LOGIN';
+         $("#login-success-flashmsg").html("<i class='fa fa-exclamation-triangle text-danger'> <b class='text-danger'>Technical Error! Please Login With Phone Number or Contact Admin.</b>");
+       }else{
+
+
+        if (LoginTabName == 'Management') {
+
+          btn.disabled =false;
+          btn.innerText = 'LOGIN';
+
+
+          $("#login-error-flashmsg").html("This email id is not registered please signup.");
+          setTimeout(function(){$("#login-error-flashmsg").text('');},6000);
+
+        }else
+        {
+          if (LoginTabName == 'Management') {
+
+            $("#signup-error-flashmsg").html("This email id is not registered please signup.");
+
+            setTimeout(function(){$("#signup-error-flashmsg").text('');},6000);
+          }else{
+
+            $("#loginModal").modal('hide');
+            $("#signupModal").modal('show');
+
+            $("#signupEmail").val(email);
+          }
+
+        }
+      }
+    }             
+  });
+
+    }else{
+     btn.disabled =false;
+     btn.innerText = 'LOGIN';
+     $("#login-error-flashmsg").html("Please enter a valid email address.");
+     setTimeout(function(){$("#login-error-flashmsg").text('');},6000);
+     loader.off();
+   }
 
         //test end
 
-}
-loader.off();
+ }
+ loader.off();
 }
 }
 
@@ -597,30 +654,37 @@ function LoginUser(url) {
 
      }else{
 
+
+
+
        $("#signup-error-flashmsg").html("This phone no. is not registerd please signup !");
        setTimeout(function(){$("#signup-error-flashmsg").text('');},6000);
 
        if((location.href.match(/([^\/]*)\/*$/)[1]).indexOf('Payonline') != -1){
         openBoxlog('signup');
         btn.disabled = false;
-        btn.innerText = 'Login';
+        btn.innerText = 'LOGIN';
       }
       else
       {
 
-        $("#signupEmail").val(email);
-        $("#signupPhoneNumber").val(phone);    
 
+        if (LoginTabName == 'Management') {
 
+          btn.disabled =false;
+          btn.innerText = 'LOGIN';
+          $("#login-error-flashmsg").html("This phone no. is not registerd please signup!");
+          setTimeout(function(){$("#login-error-flashmsg").text('');},6000);
 
+        }else{
 
-        $("#loginModal").modal('hide');
-        $("#signupModal").modal('show'); 
+          $("#signupEmail").val(email);
+          $("#signupPhoneNumber").val(phone);    
+          $("#loginModal").modal('hide');
+          $("#signupModal").modal('show'); 
+
+        }
       }
-
-
-
-
     }
   }             
 });
@@ -646,13 +710,9 @@ function LoginUser(url) {
     newphone =  value; 
 
 
-      // get the active tab element
+
     const activeLoginTab = $('.nav-link.active');
-
-// get the value of the 'tab-name' attribute
     const LoginTabName = activeLoginTab.attr('tab-name');
-
-// use the value of 'tabName' as needed
     console.log(LoginTabName);
 
 
@@ -687,8 +747,6 @@ function LoginUser(url) {
        }
        else
        {
-
-// =============================================================
          if ($("#fromPage").val() == 'newsletter') {
           $('.loginBtnClose').click();
           $("#loginModal").modal("hide");
@@ -706,24 +764,29 @@ function LoginUser(url) {
         else if ( $("#fromPage").val() == 'view-cart' )
         {
           window.location.href = "<?=base_url('Services/ViewCart')?>";
+        }else if ( $("#fromPage").val() == 'facilities' )
+        {
+          window.location.href = "<?=base_url('facilities/checkout')?>";
         }
         else{
+          
+         if (LoginTabName == 'Management') {
+
+          window.location.href = "<?=base_url('managements/member-directory')?>";
+
+        }else{
+
           window.location.href = "<?=base_url('admin/update-profile')?>";
         }
-
-// =============================================================
-
-
-
       }
-
-    }else{
-      $("#loginModal").modal('hide');
-      $("#signupModal").modal('show');
-      $("#signup-error-flashmsg").html("This phone no. is not registerd please signup !");
-      setTimeout(function(){$("#signup-error-flashmsg").text('');},6000);
     }
-  }             
+  }else{
+    $("#loginModal").modal('hide');
+    $("#signupModal").modal('show');
+    $("#signup-error-flashmsg").html("This phone no. is not registerd please signup !");
+    setTimeout(function(){$("#signup-error-flashmsg").text('');},6000);
+  }
+}             
 });
 
   }
@@ -838,6 +901,7 @@ function LoginUser(url) {
   }
 
 
+
 </script>
 
 
@@ -877,89 +941,82 @@ function LoginUser(url) {
       // This function runs when the 'sign-in-button' is clicked
       // Takes the value from the 'phoneNumber' input and sends SMS to that phone number
   function submitPhoneNumberAuth() {
-    var phoneNumber = document.getElementById("loginPhoneNumber").value;
-    var appVerifier = window.recaptchaVerifier;
-    firebase
-    .auth()
-    .signInWithPhoneNumber(phoneNumber, appVerifier)
-    .then(function(confirmationResult) {
-      window.confirmationResult = confirmationResult;
+   $("#AdministratorTab").addClass('disabled');
+   $("#devoteeTab").addClass('disabled');
 
-      if(confirmationResult.verificationId)
-      {
+   var phoneNumber = document.getElementById("loginPhoneNumber").value;
+   var appVerifier = window.recaptchaVerifier;
+   firebase
+   .auth()
+   .signInWithPhoneNumber(phoneNumber, appVerifier)
+   .then(function(confirmationResult) {
+    window.confirmationResult = confirmationResult;
+
+    if(confirmationResult.verificationId)
+    {
         // $("#mobiletoggle").toggle();
-        $("#mobiletoggle").css('display','inline-flex');
-        $('#mobileotp').focus();
-        $(".otpsendmsg_number").html("OTP has been sent on this mobile number.");
-        setTimeout(function(){$(".otpsendmsg_number").text('');},6000);
-        $("#recaptcha-container").remove();
-      }
+      $("#mobiletoggle").css('display','inline-flex');
+      $('#mobileotp').focus();
+      $("#AdministratorTab").addClass('disabled');
+      $("#devoteeTab").addClass('disabled');
+      $(".otpsendmsg_number").html("OTP has been sent on this mobile number.");
+      setTimeout(function(){$(".otpsendmsg_number").text('');},6000);
+      $("#recaptcha-container").remove();
+    }
 
 
-    })
-    .catch(function(error) {
-      // console.log(error);
-        // $(".otpsendmsg_number").html("OTP has been sent on this mobile number.");
-      // $("#login-error-flashmsg").html(error.message);
+  })
+   .catch(function(error) {
+      console.log(error);
+   });
+ }
 
-    });
-  }
-
-  function submitPhoneNumberAuthCode() {
-    var btn = document.getElementById('mobileotpverifybtn');
-    btn.disabled =true;
-    btn.innerText = 'VERIFYING';
+ function submitPhoneNumberAuthCode() {
+  var btn = document.getElementById('mobileotpverifybtn');
+  btn.disabled =true;
+  btn.innerText = 'VERIFYING';
 
 
-    var code = document.getElementById("mobileotp").value;
-    if (code == "") {
-     btn.disabled =false;
-     btn.innerText = 'VERIFY';
-     $(".otpsendmsg_number").html("");
-     $(".otpsendmsg_number_error").html("Please enter OTP");
-     setTimeout(function(){$(".otpsendmsg_number_error").text('');},6000);
+  var code = document.getElementById("mobileotp").value;
+  if (code == "") {
+   btn.disabled =false;
+   btn.innerText = 'VERIFY';
+   $(".otpsendmsg_number").html("");
+   $(".otpsendmsg_number_error").html("Please enter 6 digit OTP!");
+   setTimeout(function(){$(".otpsendmsg_number_error").text('');},6000);
 
-   }else{
-    confirmationResult
-    .confirm(code)
-    .then(function(result) {
-      var user = result.user;
+ }else{
+  confirmationResult
+  .confirm(code)
+  .then(function(result) {
+    var user = result.user;
       // console.log(user);
 
-      PhoneLogin('<?=base_url('signin')?>');
+    PhoneLogin('<?=base_url('signin')?>');
 
 
       // console.log("USER LOGGED IN");
 
-    })
-    .catch(function(error) {
-      alert('Invalid OTP/OTP Expired!!')
-      var btn = document.getElementById('mobileotpverifybtn');
-      btn.disabled =false;
-      btn.innerText = 'VERIFY';
+  })
+  .catch(function(error) {
+    alert('Invalid OTP/OTP Expired!!')
+    var btn = document.getElementById('mobileotpverifybtn');
+    btn.disabled =false;
+    btn.innerText = 'VERIFY';
       // console.log(error);
-    });
+  });
 
-         //This function runs everytime the auth state changes. Use to verify if the user is logged in
-    firebase.auth().onAuthStateChanged(function(user) {
-    });
-  }
+  firebase.auth().onAuthStateChanged(function(user) {
+  });
+}
 }
 
 
 </script>
 
 <!-- --------------------------------------------------------------------------------------------- -->
-<!-- --------------------------------------------------------------------------------------------- -->
-<!-- --------------------------------------------------------------------------------------------- -->
-
 
 <!-- Paypal Payment Method Integration -->
-
-
-<!-- <script src="https://www.paypal.com/sdk/js?client-id=<?=PAYPAL_LIVE_CLIENT_ID?>&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script> -->
-
-
 
 <script src="https://www.paypal.com/sdk/js?client-id=AZWa1v-41vEK0OBD5Gh4e7dzK1jDBktayNboPvTKQpmyaf4iOJdSQ9wg3uy_-d9fQZdWYRYnyDZKQxs0&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
 

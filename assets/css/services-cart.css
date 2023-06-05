@@ -1,0 +1,195 @@
+ .paging-nav {
+ 	text-align: right;
+ 	padding-top: 2px;
+ }
+
+ .paging-nav a {
+ 	margin: auto 1px;
+ 	text-decoration: none;
+ 	display: inline-block;
+ 	padding: 7px 15px;
+ 	background: #005d4b;
+ 	color: white;
+ 	border-radius: 3px;
+ }
+
+ .paging-nav .selected-page {
+ 	background: #70011d;
+ 	font-weight: bold;
+ }
+
+ .paging-nav,
+ #tableData {
+ 	width: 400px;
+ 	margin: 0 auto;
+ 	float: right;
+ 	font-family: Arial, sans-serif;
+ }
+
+
+
+ .crop-center {
+ 	background-position: center center;
+ 	background-repeat: no-repeat;
+ 	background-size: cover;
+ 	height: 100px;
+ 	width:100%;
+ }
+
+
+ .date-time-placeholder::-webkit-input-placeholder {
+ 	color: #fff!important;
+ }
+
+ .date-time-placeholder::-moz-placeholder {
+ 	color: #fff!important;
+ }
+
+ input:-ms-input-placeholder {
+ 	color: #fff!important;
+ }
+
+ .date-time-placeholder:-moz-placeholder {
+ 	color: #fff!important;
+ }
+
+
+
+ .quantity-container {
+ 	display: flex;
+ 	align-items: center;
+ }
+
+ .quantity-input {
+ 	width: 40px;
+ 	text-align: center;
+ 	border: 1px solid gray;
+ 	border-radius: 5px;
+ 	margin: 0 10px;
+ 	padding: 5px;
+ }
+
+ .minus-btn, .plus-btn {
+ 	width: 40px;
+ 	height: 40px;
+ 	border: 1px solid gray;
+ 	border-radius: 5px;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
+ 	font-size: 20px;
+ 	font-weight: bold;
+ 	cursor: pointer;
+ }
+
+ .services{
+ 	background-color:#db96191c!important;
+ 	border:0!important;
+ 	word-wrap: inherit!important;
+ 	color: #642318!important;
+ 	font-weight: bold!important;
+ 	padding: 11px 17px!important;
+ }
+ .active-services{
+ 	background-color:#570000!important;
+ 	border:0!important;
+ 	color: white!important;    
+ 	padding: 12px 0px!important;
+ 	word-wrap: inherit!important;
+ 	font-weight: 600!important;
+ 	padding: 11px 17px!important;
+ }
+
+
+ .availability-btn{
+ 	border-radius: 4px!important;
+ 	text-align: center;
+ 	font-size: unset;
+ 	background: #045b62;
+ 	font-weight: 700;
+ 	font-size: 17px;
+ 	padding: 10px;
+ 	float: right;
+ 	margin-right: 26px;
+ }
+
+ .service-list-header{
+ 	vertical-align: middle;
+ 	font-size: 20px;
+ 	font-weight: 700;
+ 	text-shadow: 0px 1px 0px red;
+ 	background-color: #045b62;
+ 	color: #ffe000;
+ }
+
+
+
+
+
+
+ .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled{
+ 	background: #005d4b!important!important;
+ }
+
+ .form-select:focus {
+ 	border-color: #000000;
+ 	outline: 0;
+ 	box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 25%);
+ }
+ .form-select {
+ 	min-height: 37px;
+ 	color: #b02135;
+ 	font-weight: 800;
+ 	width: 100%!important;
+ 	font-size: 16px;
+ }
+
+
+ input.search-text {
+ 	color: #222;
+ 	position:relative;
+ 	z-index:5;
+ 	transition: z-index 0.8s, width 0.5s, background 0.3s ease, border 0.3s;
+ 	height: 39px;
+ 	width: 0;
+ 	margin: 0;
+ 	padding: 5px 0 5px 38px;
+ 	box-sizing: border-box;
+ 	font-size: 16px;
+ 	font-size: 1rem;
+ 	cursor: pointer;
+ 	border-radius: 30px;
+ 	border: 1px solid transparent;
+ 	/*background: url(search.png) no-repeat left 9px center transparent;*/
+ 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUxMiA1MTIiIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik01MDMuODY2LDQ3Ny45NzRMMzYwLjk1OCwzMzUuMDUyYzI4LjcyNS0zNC41NDQsNDYuMDE3LTc4LjkxMiw0Ni4wMTctMTI3LjMzNiAgYzAtMTEwLjA4NC04OS4yMjctMTk5LjMxMi0xOTkuMzEyLTE5OS4zMTJDOTcuNTk5LDguNDAzLDguMzUxLDk3LjYzMSw4LjM1MSwyMDcuNzE1YzAsMTEwLjA2NCw4OS4yNDgsMTk5LjMxMiwxOTkuMzEyLDE5OS4zMTIgIGM0OC40MzUsMCw5Mi43OTItMTcuMjkyLDEyNy4zMzYtNDYuMDE3bDE0Mi45MDgsMTQyLjkyMkw1MDMuODY2LDQ3Ny45NzR6IE0yOS4zMzEsMjA3LjcxNWMwLTk4LjMzNCw3OS45ODctMTc4LjMzMiwxNzguMzMyLTE3OC4zMzIgIGM5OC4zMjUsMCwxNzguMzMyLDc5Ljk5OCwxNzguMzMyLDE3OC4zMzJzLTgwLjAwNywxNzguMzMyLTE3OC4zMzIsMTc4LjMzMkMxMDkuMzE4LDM4Ni4wNDcsMjkuMzMxLDMwNi4wNSwyOS4zMzEsMjA3LjcxNXoiIGZpbGw9IiMzNzQwNEQiLz48L3N2Zz4=) no-repeat left 9px center transparent;
+ 	background-size:24px;
+ }
+ input.search-text:focus {
+ 	z-index:3; 
+ 	width: 270px;
+ 	border: 2px solid #005d4b;  
+ 	background-color: white;
+ 	outline: none;
+ 	cursor:auto;
+ 	padding-right: 10px;
+ }
+
+ input.search-submit {
+ 	position: relative;
+ 	z-index: 4;
+ 	top:17px;
+ 	left: 49px;
+ 	width: 45px;
+ 	height: 45px;
+ 	margin: 0;
+ 	padding: 0;
+ 	border: 0;
+ 	outline: 0;
+ 	border-radius: 30px;
+ 	cursor: pointer; 
+ 	background: none;
+ }
+
+ input.search-text::-webkit-search-cancel-button {
+ 	cursor:pointer;
+ }

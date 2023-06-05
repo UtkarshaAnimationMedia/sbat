@@ -23,7 +23,7 @@
 				<legend  class="legend-outer  float-none w-auto"> Personal Details </legend>
 				<div class="row">
 
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<?php 
 
 									// print_r($userDetails);
@@ -39,7 +39,7 @@
 							</div>
 						</fieldset>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<fieldset class="border">
 							<legend  class="legend-inner float-none w-auto">Last Name</legend>
 							<div class="input-group">
@@ -49,6 +49,19 @@
 						</fieldset>
 
 					</div>
+
+					<div class="col-md-4">
+						<fieldset class="border">
+							<legend  class="legend-inner float-none w-auto">Date of Birth</legend>
+							<div class="input-group">
+								<i class="fa fa2 fa-user"></i>
+								<input type="text" class="form-control" id="dob" name="dob" value="<?= set_value('dob', @$userDetails->dob)?>" placeholder="MM/DD/YYYY" aria-label="dob" aria-describedby="basic-addon1" readonly>
+							</div>
+						</fieldset>
+
+					</div>
+
+
 				</div>
 				<div class="row">
 					<div class="col-md-4">

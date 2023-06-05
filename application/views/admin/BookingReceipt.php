@@ -81,16 +81,7 @@
 
             <?php $this->load->view('admin/includes/head'); ?>
 
-
-            <body>
-
-
-
-
-                <div class="d-flex" id="wrapper">
                     <?php $this->load->view('admin/includes/sidebar'); ?>
-                    <!-- Page content wrapper-->
-                    <div id="page-content-wrapper">
                         <!-- Top navigation-->
                         <?php $this->load->view('admin/includes/topbar'); ?>
 
@@ -100,14 +91,14 @@
                             <div class="row">
 
 
-                                <div class="col-md-8 shadow mx-auto d-block">
+                                <div class="col-md-8 shadow mx-auto bg-white d-block">
                                     <div class="p-5"> 
 
                                         <div class="bordered"  id="PdfPrintSection">
                                             <div style="background-color:#fff">
                                                 <div class="row" style="vertical-align: middle!important;">
                                                     <div class="col-md-3 mx-auto d-block">
-                                                        <img src="<?=base_url('assets/img/logo-1.png');?>" class="img-fluid" height="100px" width="100px">
+                                                        <img src="<?=$header_data[0]['leftImage'] ? ApiBaseUrl()['url'].'/'.@$header_data[0]['leftImage'] : base_url('assets/img/logo-1.png')?>" class="img-fluid" height="100px" width="100px">
 
                                                     </div>
                                                     <div class="col-md-7 mt-3 mx-auto d-block text-center">

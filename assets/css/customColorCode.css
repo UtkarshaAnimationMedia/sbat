@@ -1,9 +1,9 @@
 :root {
   --blue: #1e90ff;
   --white: #ffffff; 
-  --headerFooter: #5e0000; 
+  --headerFooter: #B02135; 
   --orange: #F26938;
-  --menu-bg : #E12823;
+  --menu-bg : #7D1456;
   --page-wrapper-bg-color : #FFEFE2;  /*   Page wrapper bg color   */
   --home-card-bg : #FDF295;  /*   Home Page Card flash news, punchagam, upcoming events   */
   --active-devotee-dashboard-menu : #760010;
@@ -21,8 +21,8 @@
   color: var(--white)!important;
 }
 .footer-icon-color{
-	background-color: var(--headerFooter)!important;
-	color: var(--white)!important;
+    background-color: var(--headerFooter)!important;
+    color: var(--white)!important;
 }
 
 #footer .footer-top h4 {

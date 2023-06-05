@@ -234,7 +234,7 @@ class ServiceRequest extends Dashboard {
 			$data['page'] = 'Service-Request';
 			$data['header'] = 'REQUEST A SERVICE';
 			$data['GetState'] = $this->GetState();
-			$userDetails = $this->getUserDetails();
+			$userDetails = getUserDetails();
 			$preferredLanguage = $this->getPreferredLanguage();
 			$preferredLocations = $this->getPreferredLocations();
 			$PriestData = $this->getPriestData();

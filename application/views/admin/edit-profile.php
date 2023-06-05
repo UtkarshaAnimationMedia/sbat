@@ -1,53 +1,44 @@
 <?php $this->load->view('admin/includes/head'); ?>
 <body>
-<?php
-$header_data = $this->mongo_db2->where(['aspectType'=> 'headerSettings'])->get('wesiteSettings');
-?>
-<style type="text/css">
-	.fa2{
-		margin-top: 7px;
+	<?php
+	$header_data = $this->mongo_db2->where(['aspectType'=> 'headerSettings'])->get('wesiteSettings');
+	?>
+	<style type="text/css">
+		.fa2{
+			margin-top: 7px;
 
-	}
-	.fa{
-		padding-top: 3px;
-	}
-	input{
-		padding-top: 0px!important;
-		padding-left: 15px!important;
-	}
+		}
+		.fa{
+			padding-top: 3px;
+		}
+		input{
+			padding-top: 0px!important;
+			padding-left: 15px!important;
+		}
 
-</style>
-<div class="d-flex" id="wrapper">
-	<?php $this->load->view('admin/includes/sidebar'); ?>
-	<!-- Page content wrapper-->
-	<div id="page-content-wrapper">
-		<!-- Top navigation-->
-		<?php $this->load->view('admin/includes/topbar'); ?>
-		<!-- Main content-->
-		<div class="container" >
-			<div class="row p-4 ">
+	</style>
+	<div class="d-flex" id="wrapper">
+		<?php $this->load->view('admin/includes/sidebar'); ?>
+		<!-- Page content wrapper-->
+		<div id="page-content-wrapper">
+			<!-- Top navigation-->
+			<?php $this->load->view('admin/includes/topbar'); ?>
+			<!-- Main content-->
+			<div class="container" >
+				<div class="row p-4 ">
 
-				<div class="col-md-12 mx-auto d-block shadow-lg bg-body rounded">
-					<?php echo $this->session->flashdata('success'); ?>
-					<!-- <form action="<?=base_url('admin/update/profile')?>" class="contact-form" method="post"> -->
+					<div class="col-md-12 mx-auto d-block shadow-lg bg-body rounded">
+						<?php echo $this->session->flashdata('success'); ?>				
 						<?= form_open('admin/update/profile', ' method="post" id="UpdateProfileForm"') ?>
-						
+
 
 						<fieldset class="border-2">
 							<legend  class="legend-outer  float-none w-auto"> Personal Details </legend>
 
 							<div class="row">
 
-
-
-								<div class="col-md-6">
-									<?php 
-									$parts = explode(" ", @$userDetails->refDataName);
-									$lastname = array_pop($parts);
-									$firstname = implode(" ", $parts);
-								// echo '<pre>';
-								// print_r($userDetails);
-									?>
+								<div class="col-md-4">
+									<?php  $parts = explode(" ", @$userDetails->refDataName); $lastname = array_pop($parts); $firstname = implode(" ", $parts); ?>
 									<fieldset class="border">
 										<legend  class="legend-inner float-none w-auto">First Name</legend>
 										<!-- <div class="input-group"></div> -->
@@ -58,12 +49,26 @@ $header_data = $this->mongo_db2->where(['aspectType'=> 'headerSettings'])->get('
 										</div>
 									</fieldset>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<fieldset class="border">
 										<legend  class="legend-inner float-none w-auto">Last Name</legend>
 										<div class="input-group">
 											<i class="fa fa-user"></i>
 											<input type="text" class="form-control" id="lname" name="lname" value="<?= set_value('lname', @$lastname)?>" placeholder="Last Name" aria-label="lname" required aria-describedby="basic-addon1">
+										</div>
+									</fieldset>
+
+								</div>
+
+
+
+								<div class="col-md-4">
+									<fieldset class="border">
+										<legend  class="legend-inner float-none w-auto">Date of Birth</legend>
+										<div class="input-group">
+											<labe class="fa fa-calendar" for="dob"></labe>
+											<input type="text" name="dob" id="dob"   class="form-control datepicker" value="<?= set_value('dob',@$userDetails->dob)?>" placeholder="MM/DD/YYYY" aria-label="dob" aria-describedby="basic-addon1">
+
 										</div>
 									</fieldset>
 
@@ -249,8 +254,6 @@ $header_data = $this->mongo_db2->where(['aspectType'=> 'headerSettings'])->get('
 											<select class="form-control" name="state" id="stateSelect">
 												<option value="" selected disabled>Select State</option>
 												<?php
-
-												print_r($userDetails);
 
 												$keys = array_column($GetState, 'refDataName'); /// Multidiamensional array sort by key
 												array_multisort($keys, SORT_ASC, $GetState);
@@ -738,6 +741,7 @@ $header_data = $this->mongo_db2->where(['aspectType'=> 'headerSettings'])->get('
 
 
 
+
 	function submitForm(){
 
 
@@ -769,7 +773,7 @@ $header_data = $this->mongo_db2->where(['aspectType'=> 'headerSettings'])->get('
 			cancelButtonText: 'No',
 			denyButtonText: `Yes`,
 		}).then((result) => {
-  /* Read more about isConfirmed, isDenied below */
+
 			if (result.isConfirmed) {
 				Swal.fire('Saved!', '', 'success')
 			} else if (result.isDenied) {
@@ -778,15 +782,6 @@ $header_data = $this->mongo_db2->where(['aspectType'=> 'headerSettings'])->get('
 			}
 		})
 	}
-
-
-
-
-		// window.onbeforeunload = (event) => {
-		// 	event.preventDefault();
-		// 	event.returnValue = '';
-		// }
-
 
 </script>
 

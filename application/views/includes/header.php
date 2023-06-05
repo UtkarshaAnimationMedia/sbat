@@ -53,14 +53,14 @@
   .navbar a, .navbar a:focus {
     padding: 10px 20px 10px 20px!important;
   }
-    #header{
-      color: white;
-      transition: all 0.5s;
-      z-index: 997;
-      transition: all 0.5s;
-      font-weight: 1000;
-      height: 55px;
-    }
+  #header{
+    color: white;
+    transition: all 0.5s;
+    z-index: 997;
+    transition: all 0.5s;
+    font-weight: 1000;
+    height: 55px;
+  }
 </style>
 
 <!-- ======= Header ======= -->
@@ -69,49 +69,61 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="navlink  <?php if($page == 'Home') { ?> active<?php } ?>" href="<?=base_url()?>">HOME</a></li>
-        <!-- <li><a class="navlink <?php if($page == 'Services') { ?> active  <?php } ?>" href="<?=base_url('services')?>">SERVICES</a></li> -->
+
+        <li><a class="navlink <?php if($page == 'Services') { ?> active  <?php } ?>" href="<?=base_url('services')?>">SERVICES</a></li>
+
+        <li><a class="navlink <?php if($page == 'Facilities') { ?> active  <?php } ?>" href="<?=base_url('facilities')?>">FACILITIES</a></li>
+
+        <li><a class="navlink <?php if($page == 'Calendar') { ?> active  <?php } ?>" href="<?=base_url('calendar')?>">CALENDAR</a></li>
+
+        <li><a class="navlink <?php if($page == 'Donations') { ?>  active   <?php } ?>" href="<?=base_url('donations')?>"<?php if($page == 'Donation') { ?> class="active"  <?php } ?>>DONATIONS</a></li>
+
+        <li><a class="navlink <?php if($page == 'Gallery') { ?> active  <?php } ?>" href="<?=base_url('gallery')?>">GALLERY</a></li>
+
+        <li class="dropdown">
+          <a class="navlink <?php if($page == 'ABOUT-TEMPLE' || $page == 'ABOUT-COMMITTEE' || $page == 'ABOUT-DEITY' || $page == 'ABOUT-TEMPLE' || $page == 'ABOUT-PRIEST' || $page == 'GENERAL-REFERENCE' || $page == 'FINANCIAL-STATEMENTS')  { ?>active<?php } ?>" href="javascript:void()" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ABOUT TEMPLE <i class="fa fa-caret-down"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a  href="<?=base_url('about-temple')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-TEMPLE') { ?>active<?php } ?>" >ABOUT TEMPLE</a></li>
+            <li><a  href="<?=base_url('about-deities')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-DEITY') { ?>active<?php } ?>">ABOUT DEITIES</a></li>
+            <li><a  href="<?=base_url('about-priest')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-PRIEST') { ?>active<?php } ?>">ABOUT PRIESTS</a></li>
+            <li><a  href="<?=base_url('about-committee')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-COMMITTEE') { ?>active<?php } ?>">ABOUT COMMITTEE</a></li>
+            <li><a  href="<?=base_url('general-reference')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'GENERAL-REFERENCE') { ?>active<?php } ?>">GENERAL REFERENCE</a></li>
+            <li><a  href="<?=base_url('financial-statements')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'FINANCIAL-STATEMENTS') { ?>active<?php } ?>">FINANCIAL STATEMENTS</a></li>
+          </ul>
+        </li>
+
+        <li><a class="navlink <?php if($page == 'CONTACT-US') { ?>  active   <?php } ?>" href="<?=base_url('contact-us')?>">CONTACT US</a></li>
 
 
-          <li><a class="navlink <?php if($page == 'Services') { ?> active  <?php } ?>" href="<?=base_url('services')?>">SERVICES</a></li>
-          <li><a class="navlink <?php if($page == 'Calendar') { ?> active  <?php } ?>" href="<?=base_url('calendar')?>">CALENDAR</a></li>
+        <?php if ($this->session->userdata('logged_in') == 1 ) {
+         $userSession = $this->session->userdata('refDataName'); ?>
 
-          <li><a class="navlink <?php if($page == 'Donations') { ?>  active   <?php } ?>" href="<?=base_url('donations')?>"<?php if($page == 'Donation') { ?> class="active"  <?php } ?>>DONATIONS</a></li>
+         <li class="dropdown">
+          <a href="javascript:void()" class="navlink" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> MY ACCOUNT <i class="fa fa-caret-down"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-          <li><a class="navlink <?php if($page == 'Gallery') { ?> active  <?php } ?>" href="<?=base_url('gallery')?>">GALLERY</a></li>
+           <?php if ($this->session->userdata('userType') == 'Devotee') { ?>
+             <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'Dashboard') { ?> active  <?php } ?>" href="<?=base_url('admin/my-profile')?>">MY ACCOUNT</a></li>
 
-          <li class="dropdown">
-            <a class="navlink <?php if($page == 'ABOUT-TEMPLE' || $page == 'ABOUT-COMMITTEE' || $page == 'ABOUT-DEITY' || $page == 'ABOUT-TEMPLE' || $page == 'ABOUT-PRIEST' || $page == 'GENERAL-REFERENCE' || $page == 'FINANCIAL-STATEMENTS')  { ?>active<?php } ?>" href="javascript:void()" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ABOUT TEMPLE <i class="fa fa-caret-down"></i></a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a  href="<?=base_url('about-temple')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-TEMPLE') { ?>active<?php } ?>" >ABOUT TEMPLE</a></li>
-              <li><a  href="<?=base_url('about-deities')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-DEITY') { ?>active<?php } ?>">ABOUT DEITIES</a></li>
-              <li><a  href="<?=base_url('about-priest')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-PRIEST') { ?>active<?php } ?>">ABOUT PRIESTS</a></li>
-              <li><a  href="<?=base_url('about-committee')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-COMMITTEE') { ?>active<?php } ?>">ABOUT COMMITTEE</a></li>
-              <li><a  href="<?=base_url('general-reference')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'GENERAL-REFERENCE') { ?>active<?php } ?>">GENERAL REFERENCE</a></li>
-              <li><a  href="<?=base_url('financial-statements')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'FINANCIAL-STATEMENTS') { ?>active<?php } ?>">FINANCIAL STATEMENTS</a></li>
-            </ul>
-          </li>
+           <?php }else if($this->session->userdata('userType') == 'Managements'){ ?>
+            <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'MEMBER DIRECTORY') { ?> active  <?php } ?>" href="<?=base_url('managements/member-directory')?>">MY ACCOUNT</a></li>
 
-          <li><a class="navlink <?php if($page == 'CONTACT-US') { ?>  active   <?php } ?>" href="<?=base_url('contact-us')?>">CONTACT US</a></li>
+          <?php } ?>
 
-          <?php if ($this->session->userdata('logged_in') == 1 ) {
-           $userSession = $this->session->userdata('refDataName'); ?>
+          <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'Volunteers-Form') { ?> active  <?php } ?>" href="<?=base_url('volunteer')?>">VOLUNTEERS FORM</a></li>
+          <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'Membership-Form') { ?> active  <?php } ?>" href="<?=base_url('membership')?>">MEMBERSHIP FORM</a></li>
+          <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'Logout') { ?> active  <?php } ?>" href="<?=base_url('logout')?>">LOGOUT</a></li>
+        </ul>
+      </li>
 
-           <li class="dropdown">
-            <a href="javascript:void()" class="navlink" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> MY ACCOUNT <i class="fa fa-caret-down"></i></a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'Dashboard') { ?> active  <?php } ?>" href="<?=base_url('admin/my-profile')?>">MY ACCOUNT</a></li>
-              <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'Volunteers-Form') { ?> active  <?php } ?>" href="<?=base_url('volunteer')?>">VOLUNTEERS FORM</a></li>
-              <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'Membership-Form') { ?> active  <?php } ?>" href="<?=base_url('membership')?>">MEMBERSHIP FORM</a></li>
-              <li><a class="text-uppercase dropdown-item navlink <?php if($page == 'Logout') { ?> active  <?php } ?>" href="<?=base_url('logout')?>">LOGOUT</a></li>
-            </ul>
-          </li>
+    <?php }else { ?>
+     <li><a  href="javascript:void(0);" class="navlink dotlgbtn <?php if($page == 'Devotee Sign In') { ?> active  <?php } ?>" onclick="checkLoginStatus()">SIGN-IN</a></li>
+   <?php }?>
 
-        <?php }else { ?>
-         <li><a  href="javascript:void(0);" class="navlink dotlgbtn <?php if($page == 'Devotee Sign In') { ?> active  <?php } ?>" onclick="checkLoginStatus();">DEVOTEE SIGN-IN</a></li>
-       <?php }?>
-     </ul>
-     <i class="bi bi-list mobile-nav-toggle text-white"></i>
-   </nav><!-- .navbar -->
 
- </div>
+ </ul>
+ <i class="bi bi-list mobile-nav-toggle text-white"></i>
+</nav><!-- .navbar -->
+
+</div>
 </header><!-- End Header -->

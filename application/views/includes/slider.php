@@ -77,7 +77,7 @@
             <div class="row m-0 p-0">
               <div class="col-md-6 m-0 p-0">
 
-                <img src="<?= ApiBaseUrl()['url'].$item['refDataName']?>" class="d-block w-100" alt="<?=$item['altName']?>" id="sliderImg">
+                <img src="<?= ApiBaseUrl()['url'].$item['refDataName']?>" style="height:68vh" class="d-block w-100" alt="<?=$item['bannerHeading']?>" id="sliderImg">
               </div>
               <div class="col-md-6 m-0 p-4" style="background-color:#F7DEA4">
                 <h2><?=CheckEmptyNullVar(@$item['bannerHeading']);?></h2>
@@ -114,7 +114,7 @@
               </div>
               <div class="col-md-6 m-0 p-0">
 
-                <img src="<?= ApiBaseUrl()['url'].$item['refDataName']?>" class="d-block w-100" alt="<?=$item['altName']?>" id="sliderImg">
+                <img src="<?= ApiBaseUrl()['url'].$item['refDataName']?>" style="height:68vh" class="d-block w-100" alt="<?=$item['bannerHeading']?>" id="sliderImg">
               </div>
             </div>
           <?php } ?>
@@ -126,7 +126,7 @@
             <div class="row m-0 p-0">
               <div class="col-md-12 m-0 p-0" style="background-color:#F7DEA4">
 
-               <img src="<?= ApiBaseUrl()['url'].$item['refDataName']?>" class="d-block w-100" alt="<?=$item['altName']?>" id="sliderImg">
+               <img src="<?= ApiBaseUrl()['url'].$item['refDataName']?>" style="height:68vh" class="d-block w-100" alt="<?=$item['bannerHeading']?>" id="sliderImg">
              </div>
            </div>
 
@@ -136,7 +136,7 @@
 
          <!-- ******************************************************************* -->
          <?php if ($item['bannerType'] == 'IMAGE WITH BOTTOM TEXT') { ?> 
-          <img src="<?= ApiBaseUrl()['url'].$item['refDataName']?>" class="d-block w-100" alt="<?=$item['altName']?>" id="sliderImg">
+          <img src="<?= ApiBaseUrl()['url'].$item['refDataName']?>" style="height:68vh" class="d-block w-100" alt="<?=$item['bannerHeading']?>" id="sliderImg">
 
           <div class="carousel-caption d-none d-md-block">
 

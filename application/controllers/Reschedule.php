@@ -17,9 +17,6 @@ class Reschedule extends CI_Controller {
 		$data['page'] 		= 'Home';
 		$data['pageTitle'] 	= 'Log in';
 
-
-		
-
 		$data['servicesDetail'] = array();
 		if($this->input->get('serviceId') && $this->session->userdata('logged_in') != 1)
 		{
@@ -30,8 +27,6 @@ class Reschedule extends CI_Controller {
 		}
 		else
 		{
-
-			 // echo '<pre>'; print_r($this->input->get());die();
 
 			 	if(empty($this->session->userdata('reschedule_user')) || $this->input->get()!= $this->session->userdata('reschedule_user'))
 			 	{
@@ -46,9 +41,6 @@ class Reschedule extends CI_Controller {
 
 	public function RescheduleProcess()
 	{
-
-
-		// echo '<pre>'; print_r($this->session->userdata());die();
 
 		$data['servicesDetail'] = array();
 		if($this->session->userdata('logged_in') == 1 && !empty($this->session->userdata('reschedule_user')))

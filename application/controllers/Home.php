@@ -6,23 +6,28 @@ class Home extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('mongo_db', array('activate'=>'newdb'),'mongo_db2');
-
 		$currency = '';
 
 		$this->$currency =  GeneralSettings();
 
 	}
 
-
 	public function index()
 	{
 		$data['page'] = 'Home';
 		$data['slider_image'] = $this->mongo_db2->where(['aspectType'=>'bannerImages'])->get('wesiteSettings');
 
+		// $this->mongo_db2->sort("eventDate", 'DESC');
+		// $data['calendar_events'] = $this->mongo_db2->where('aspectType','templeCalendar')->get('calendarCollection');
+
 		$this->mongo_db2->sort("eventDate", 'DESC');
 		$data['upcoming_events'] = $this->mongo_db2->where(['aspectType'=>'ServiceSetup','serviceCategoryTypes'=>'EVENTS', 'sourceTypes'=>'WEBSITE'])->get('businessdata');
+		// echo '<pre>';
+		// print_r($data['upcoming_events']);
 		$this->load->view('home',$data);
 	}
+
+
 
 
 	public function GetUpcomingEventById($eventName, $eventId){
@@ -40,7 +45,7 @@ class Home extends CI_Controller {
 			\"_id\": \"".$serviceId."\",          
 			\"productId\":\" ".ApiBaseUrl()['productID']."\",           
 			\"clientId\": \"".ApiBaseUrl()['clientID']."\",           
-			\"username\":\"asdf\"        
+			\"username\":\"".@$this->session->userdata('refDataName')."\"        
 		}");
 
 		$headers = array();
@@ -59,10 +64,6 @@ class Home extends CI_Controller {
 		$this->load->view('event-details',$data);
 
 	}
-
-
-
-
 	public function getpanchangamData(){
 		$lat = $this->input->post('lat');
 		$long = $this->input->post('long');
@@ -99,39 +100,39 @@ class Home extends CI_Controller {
 		$html .= '<table class="table table-responsive table-bordered table-striped" style="border-color:#642318">
 		<tbody>
 		<tr>
-		<td>Day</td>
+		<td>Day </td>
 		<td>'.$panchangam['day'].'</td>
 		</tr>
 		<tr>
-		<td>Tithi</td>
+		<td>Tithi </td>
 		<td>'.$panchangam['tithi'].'</td>
 		</tr>
 		<tr>
-		<td>Nakshatra</td>
+		<td>Nakshatra </td>
 		<td>'.$panchangam['nakshatra'].'</td>
 		</tr>
 		<tr>
-		<td>Yog</td>
+		<td>Yog </td>
 		<td>'.$panchangam['yog'].'</td>
 		</tr>
 		<tr>
-		<td>Karan</td>
+		<td>Karan </td>
 		<td>'.$panchangam['karan'].'</td>
 		</tr>
 		<tr>
-		<td>Sunrise</td>
+		<td>Sunrise </td>
 		<td>'.$panchangam['sunrise'].'</td>
 		</tr>
 		<tr>
-		<td>Sunset</td>
+		<td>Sunset </td>
 		<td>'.$panchangam['sunset'].'</td>
 		</tr>
 		<tr>
-		<td>Vedic Sunrise</td>
+		<td>Vedic Sunrise </td>
 		<td>'.$panchangam['vedic_sunrise'].'</td>
 		</tr>
 		<tr>
-		<td>Vedic Sunset</td>
+		<td>Vedic Sunset </td>
 		<td>'.$panchangam['vedic_sunset'].'</td>
 		</tr>
 		</tbody>
@@ -219,7 +220,7 @@ class Home extends CI_Controller {
 			\"clientID\": \"".ApiBaseUrl()['clientID']."\",       
 			\"aspectType\": \"serviceTypes\",     
 			\"query\": {        \"aspectType\": \"serviceTypes\", \"refDataCode\": \"DONATIONS\", \"status\": \"ACTIVE\" },   
-			\"userName\": \"\",     
+			\"userName\": \"".@$this->session->userdata('refDataName')."\",     
 			\"skip\": 0,    
 			\"next\": 1020    
 		} }");
@@ -243,7 +244,10 @@ class Home extends CI_Controller {
 	{
 
 		$currency = '';
-		$currencySymbol = $this->$currency;
+		$currencySymbol = isset($this->$currency['currencySymbol']) ? $this->$currency['currencySymbol'] : '$';
+
+
+	// print_r($currencySymbol);
 
 
 		$serviceTypes = $this->input->post('param');
@@ -252,8 +256,8 @@ class Home extends CI_Controller {
 
 		
 
-		// echo json_encode($data);
-		//  die();
+				// print_r($data);
+		 // die();
 
 		$html = '';
 
@@ -269,7 +273,7 @@ class Home extends CI_Controller {
 				if (isset($item['Image']) && !empty($item['Image'])) {
 					$src = ApiBaseUrl()['url'].$item['Image'];
 				}else{
-					$src = base_url('assets/img/')."srihanuman-watermark.png";
+					$src = base_url('assets/img/')."services-listing.png";
 				}
 
 				if(strlen($item['refDataName']) > 100){
@@ -289,7 +293,7 @@ class Home extends CI_Controller {
 				<div class="bg-image hover-zoom ripple rounded ripple-surface">
 
 				<a href="javascript:void(0)"65 data-bs-toggle="modal" data-bs-target="#service_deatils'.$i.'">
-				<img class="center-cropped" src="'.$src.'" style="border-radius: 9px;box-shadow: 2px 2px 10px #00000030;height:70px;width="100%" />
+				<img class="center-cropped" src="'.$src.'" style="border-radius: 9px;box-shadow: 2px 2px 10px #00000030;height:70px;width:100%" />
 				</a>
 
 				<a href="#!">
@@ -301,7 +305,7 @@ class Home extends CI_Controller {
 				</div>
 				<div class="col-md-6 col-lg-6 col-xl-6">
 				<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#service_deatils'.$i.'">
-				<h4 style="font-size: 18px;font-weight:bold;color:#ce0000!important;1px 0px 0px #f1ff0b!important;" data-nokey="'.$skey.'">'.camelCase($serviceName).'</h4>
+				<h4 style="padding: 0px 33px;font-size: 18px;font-weight:bold;color:#ce0000!important;1px 0px 0px #f1ff0b!important;" data-nokey="'.$skey.'">'.$serviceName.'</h4>
 				</a>
 
 				<div class="modal fade" id="service_deatils'.$i.'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -339,7 +343,7 @@ class Home extends CI_Controller {
 				</div>
 				<div class="col-md-6 col-lg-3 col-xl-4 border-sm-start-none border-start">
 				<div class="d-flex flex-row align-items-center mt-1">
-				<h4 style="font-size: 22px;font-weight:bold;color:#ce0000!important" class="mb-1 me-1">'.($ServicePrice != 0.00 ? $currencySymbol['currencySymbol'].' '.sprintf("%.2f", $ServicePrice) : "&nbsp;").'</h4>
+				<h4 style="font-size: 22px;font-weight:bold;color:#ce0000!important" class="mb-1 me-1">'.($ServicePrice != 0.00 ? @$currencySymbol.' '.sprintf("%.2f", $ServicePrice) : "&nbsp;").'</h4>
 				</div>
 				<div class="d-flex flex-column" >
 
@@ -364,18 +368,23 @@ class Home extends CI_Controller {
 
 
 
-	//*************  Services Funtions Start  *************
+//*************  Services Funtions start  *************
 	public function Services()
 	{
-		
-		
+
 		$data['page'] = 'Services';
 		$data['title'] = 'Services';
 		$data['service_cat_types'] = $this->GetServiceCatTypes();
+
+		foreach($data['service_cat_types'] as $val){
+
+			if ($val['refDataName'] == 'IN-TEMPLE') {
+				$data['IntempleServices'] = 'IN-TEMPLE';
+			}
+			
+		}
 		$this->load->view('services',$data);
 	}
-
-
 	public function GetServiceCatTypes()
 	{
 		$ch = curl_init();
@@ -391,7 +400,7 @@ class Home extends CI_Controller {
 			\"clientID\": \"".ApiBaseUrl()['clientID']."\",       
 			\"aspectType\": \"serviceCategoryTypes\",     
 			\"query\": {        \"aspectType\": \"serviceCategoryTypes\",  \"status\": \"ACTIVE\"},   
-			\"userName\": \"\",     
+			\"userName\": \"".@$this->session->userdata('refDataName')."\",     
 			\"skip\": 0,    
 			\"next\": 1020    
 		} }");
@@ -417,7 +426,6 @@ class Home extends CI_Controller {
 
 	public function getServiceDetailsById()
 	{
-		$this->session->unset_userdata('serviceDetails');
 
 		$serviceId = $this->input->post('serviceId');
 		$ch = curl_init();
@@ -431,7 +439,7 @@ class Home extends CI_Controller {
 			\"_id\": \"".$serviceId."\",          
 			\"productId\":\" ".ApiBaseUrl()['productID']."\",           
 			\"clientId\": \"".ApiBaseUrl()['clientID']."\",           
-			\"username\":\"asdf\"        
+			\"username\":\"".@$this->session->userdata('refDataName')."\"        
 		}");
 
 		$headers = array();
@@ -450,24 +458,50 @@ class Home extends CI_Controller {
 	}
 
 
-
 	public function getServices(){
 
-		$serviceTypes = $this->input->post('param');
+		$serviceCatTypes = $this->input->post('param');
 
-		$data = $this->mongo_db2->where(['aspectType'=>'ServiceSetup', 'serviceCategoryTypes'=> $serviceTypes, 'sourceTypes' => 'WEBSITE', 'status' => 'ACTIVE'])->get('businessdata');
+
+		$serviceTypes = $this->input->post('serviceTypes');
+
+
+
+		if ($serviceTypes == '') {
+			
+			$data = $this->mongo_db2->where(['aspectType'=>'ServiceSetup', 'serviceCategoryTypes'=> $serviceCatTypes, 'sourceTypes' => 'WEBSITE', 'status' => 'ACTIVE'])->get('businessdata');
+		}else{
+			$data = $this->mongo_db2->where(['aspectType'=>'ServiceSetup', 'serviceCategoryTypes'=> $serviceCatTypes,'serviceTypes'=> $serviceTypes, 'sourceTypes' => 'WEBSITE', 'status' => 'ACTIVE'])->get('businessdata');
+		}
+
+
 
 
 		$html = '';
 
+
+
+		// print_r($data);
+		
 		if ($data != array()) {
+
+			
+			$keys = array_column($data, 'serviceAmount'); /// Multidiamensional array sort by key
+			array_multisort($keys, SORT_ASC, $data);
+
+
+			
 			$i = 1;
 			foreach($data as $skey => $item){
 				if (isset($item['Image']) && !empty($item['Image'])) {
 					$src = ApiBaseUrl()['url'].$item['Image'];
 				}else{
-					$src = base_url('assets/img/')."srihanuman-watermark.png";
+					$src = base_url('assets/img/')."services-listing.png";
 				}
+
+
+
+
 
 				$ServicePrice = str_replace("$","",$item['serviceAmount']);
 
@@ -486,7 +520,7 @@ class Home extends CI_Controller {
 					<div class="bg-image hover-zoom ripple rounded ripple-surface">
 
 					<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#service_deatils'.$i.'">
-					<img  src="'.$src.'" style="height:auto;width:120px;border-radius: 9px;box-shadow: 2px 2px 10px #00000030;" />
+					<img src="'.$src.'" class="w-100" style="border-radius: 9px;box-shadow: 2px 2px 10px #00000030;" />
 					</a>
 
 					<a href="#!">
@@ -496,7 +530,7 @@ class Home extends CI_Controller {
 					</a>
 					</div>
 					</div>
-					<div class="col-md-6 col-lg-8 col-xl-8 py-3">
+					<div class="col-md-12 col-lg-8 col-xl-8 py-3">
 					<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#service_deatils'.$i.'">
 					<h4 style="font-size: 18px;font-weight:bold;" data-nokey="'.$skey.'" class="title">'.camelCase($serviceName).'</h4>
 					</a>
@@ -549,11 +583,11 @@ class Home extends CI_Controller {
 					<div class="card shadow-0 border rounded-3 p-0">
 					<div class="card-body">
 					<div class="row m-0 p-0">
-					<div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+					<div class="col-md-12 col-lg-4 col-xl-4 mb-4 mb-lg-0">
 					<div class="bg-image hover-zoom ripple rounded ripple-surface">
 
 					<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#service_deatils'.$i.'">
-					<img class="center-cropped" src="'.$src.'" style="border-radius: 9px;box-shadow: 2px 2px 10px #00000030;" />
+					<img src="'.$src.'" class="w-100" style="border-radius: 9px;box-shadow: 2px 2px 10px #00000030;" />
 					</a>
 
 					<a href="#!">
@@ -563,7 +597,7 @@ class Home extends CI_Controller {
 					</a>
 					</div>
 					</div>
-					<div class="col-md-6 col-lg-6 col-xl-6">
+					<div class="col-md-12 col-lg-5 col-xl-5">
 					<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#service_deatils'.$i.'">
 					<h4 style="font-size: 18px;font-weight:bold;" data-nokey="'.$skey.'" class="title">'.camelCase($serviceName).'</h4>
 					</a>
@@ -601,8 +635,8 @@ class Home extends CI_Controller {
 
 					</div>
 					</div>
-					<div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-					<div class="d-flex flex-row align-items-center my-3">
+					<div class="col-md-12 col-lg-3 col-xl-3 border-sm-start-none border-start">
+					<div class="d-flex flex-row align-items-center">
 					<h4 style="font-size: 22px;font-weight:bold;" class="me-1">'.($ServicePrice ? '$ '.sprintf("%.2f", $ServicePrice) : '$0.00').'</h4>
 					</div>
 					<div class="d-flex flex-column mt-1">
@@ -628,6 +662,8 @@ class Home extends CI_Controller {
 //*************  Services Funtions end  *************
 
 
+
+
 	public function checkLoginStatus(){
 		if ($this->session->userdata('logged_in') == 1) {
 			echo json_encode(1);
@@ -646,7 +682,7 @@ class Home extends CI_Controller {
 			$email = $this->input->post('email');
 			$phone = $this->input->post('phone');
 			$countryCode = $this->input->post('countryCode');
-			$data=array('refDataName'=>$fname.' '.$lname,'email'=>$email,'phone'=>$phone,'countryCode'=>$countryCode);
+			$data=array('refDataName'=>$fname.' '.$lname,'email'=>$email,'phone'=>$phone, 'contryCode'=>$countryCode);
 			$postfield=json_encode($data);
 
 			$ch = curl_init();
@@ -676,7 +712,6 @@ class Home extends CI_Controller {
 		}
 
 	}
-
 	public function Login(){
 
 
@@ -723,26 +758,49 @@ class Home extends CI_Controller {
 			if (curl_errno($ch)) {
 				echo 'Error:' . curl_error($ch);
 			}
-
-			// $response->statusCode == 1;
+			
 			if ($response->statusCode == 1) {
 				if($email!="" || $this->input->post('sessionCreate') == 1){
 
-					$logged_in_sess = array(
-						'id'           => $response->data[0]->_id,
-						'refDataName'         => $response->data[0]->refDataName,
-						'email'         => $response->data[0]->email,
-						'phone'       => $response->data[0]->phone,
-						'logged_in'    => 1,
-						'token' => $response->data[0]->token,
-						'memberTypes' => $response->data[0]->memberTypes,
-						'address' => @$response->data[0]->address
+					
+					if ($moduleName == 'Management Directory') {
 
-					);
+						$logged_in_sess = array(
+							'id'           => $response->data[0]->_id,
+							'refDataName'         => $response->data[0]->refDataName,
+							'email'         => $response->data[0]->email,
+							'phone'       => $response->data[0]->phone,
+							'logged_in'    => 1,
+							'token' => $response->data[0]->token,
+							'memberTypes' => @$response->data[0]->memberTypes,
+							'address' => @$response->data[0]->address,
+							'userType' => 'Managements'
+
+						);
+
+					}else{
+
+						$logged_in_sess = array(
+							'id'           => $response->data[0]->_id,
+							'refDataName'         => $response->data[0]->refDataName,
+							'email'         => $response->data[0]->email,
+							'phone'       => $response->data[0]->phone,
+							'logged_in'    => 1,
+							'token' => $response->data[0]->token,
+							'memberTypes' => $response->data[0]->memberTypes,
+							'address' => @$response->data[0]->address,
+							'userType' => 'Devotee'
+
+						);
+					}
 					$this->session->set_userdata($logged_in_sess);
 				}
-				$response->statusCode = 1;
+
+				
 				echo json_encode($response);
+
+
+
 			}else{
 				echo json_encode('User not found!!');
 			}
@@ -751,6 +809,7 @@ class Home extends CI_Controller {
 			echo json_encode('Something Went Wrong!!');
 		}
 	}
+
 
 
 	public function sendEmailOTP()
@@ -789,7 +848,6 @@ class Home extends CI_Controller {
 			echo 'Error:' . curl_error($ch);
 		}
 
-			// $response->statusCode == 1;
 		if ($response->statusCode == 1) {
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
@@ -809,6 +867,11 @@ class Home extends CI_Controller {
 				echo 'Error:' . curl_error($ch);
 			}
 			curl_close($ch);
+
+
+
+
+			
 
 			if($response->user->statusCode==0)
 			{
@@ -948,15 +1011,13 @@ class Home extends CI_Controller {
 				\"chequeDate\": \"\", 
 				\"totalAmount\": ".$totalAmount.", 
 				\"transactionId\":\"".$transactionId."\",
-				\"source\":\"WEBSITE\",
-				\"stationName\":\"WEBSITE\",
-				\"userId\":\"\",
-				\"stationId\":\"WEBSITE\"
+				\"source\":\"WEBSITE\"
 
 			}     
 			");
 		$token = $this->session->userdata('token');
 		$headers = array();
+
 
 		$headers[] = 'Authorization: Bearer '.$token.'';
 
@@ -1001,7 +1062,6 @@ class Home extends CI_Controller {
 		$token = $this->session->userdata('token');
 
 		$headers = array();
-		// $headers[] = 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiaGFyc2huYS5iYWpwYWk3OEBnbWFpbC5jb20iLCJleHAiOjE2NzEzNTIyNjEsImlhdCI6MTY2ODc2MDI2MX0.6_HS79UUye5MGWTdgZ13UDTBm4UEyErCY9Cy64Wsn54';
 
 		$headers[] = 'Authorization: Bearer '.$token.'';
 
@@ -1016,6 +1076,7 @@ class Home extends CI_Controller {
 		$response = json_decode($result);
 
 	}
+
 	public function contact_us(){
 		$data['page'] = 'CONTACT-US';
 		$data['title'] = 'CONTACT-US';
@@ -1090,6 +1151,8 @@ class Home extends CI_Controller {
 
 	}
 
+
+
 	public function Logout(){
 		$this->session->sess_destroy();
 		$this->session->unset_userdata('logged_in');
@@ -1098,7 +1161,8 @@ class Home extends CI_Controller {
 
 
 
-		// *************************++++++++++++++++++++****************************
+
+	// *****************************************************
 
 
 
@@ -1115,54 +1179,9 @@ class Home extends CI_Controller {
 	}
 
 
-	public function AddServicetoSession()
-	{
+	// *****************************************************
 
 
-		if($this->input->post('id'))
-		{	
-			$data = $this->input->post();
-
-			$array = array();
-			foreach ($this->input->post('id') as $key => $value) {
-
-				$array[] = array(
-					'_id' => $data['id'][$key],
-					'serviceName' => $data['serviceName'][$key],
-
-					// 'serviceCategory' => $data['serviceCategory'][$key],
-					// 'serviceType' => $data['serviceType'][$key],
-
-					'serviceAmount' => $data['serviceAmount'][$key],
-					'startDate' => $data['startDate'][$key],
-
-
-					'qty' => $data['qty'][$key],
-
-					'time' => $data['startTime'][$key],
-					// 'day' => $data['day'][$key],
-
-					// 'serviceAddress' => $data['serviceAddress'][$key],
-
-				);
-			}
-
-			$newArray = array(
-				'totalPrice' => sprintf("%.2f", $this->input->post('totalPrice')),
-				'itemList' => $array,
-			);
-
-			$this->session->set_userdata('service_cart', $newArray);
-		}
-
-
-		print_r($newArray);
-
-		$response = array('status' => '1', 'message' => "Success");
-		echo json_encode($response);
-
-
-	}
 
 
 	public function SubscribeNewsletter(){
@@ -1228,43 +1247,4 @@ class Home extends CI_Controller {
 
 
 	}
-
-
-
-
-	public function getServiceAvailability(){
-
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-
-		curl_setopt($ch, CURLOPT_URL, ApiBaseUrl()['url'].getServiceAvailability()['url']);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, "{
-			\"clientId\": \"".ApiBaseUrl()['clientID']."\",
-			\"aspectType\": \"serviceBooking\",
-			\"ServiceSetup\": \"Vadamala Pooja (108 Vadas)\",
-			\"startDate\": \"2023-02-01\",
-			\"endDate\": \"2023-02-31\",
-			\"serviceTypes\": \"VADAMALA\"
-		}");
-
-		$headers = array();
-		$headers[] = 'Content-Type: application/json';
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-		$result = curl_exec($ch);
-
-
-		$response = json_decode($result);
-		if (curl_errno($ch)) {
-			echo 'Error:' . curl_error($ch);
-		}
-		curl_close($ch);
-
-
-		print_r($response);
-	}
-
 }

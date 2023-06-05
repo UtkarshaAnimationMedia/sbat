@@ -6,7 +6,7 @@
 
 
 	</div>
-
+	<?php $cat = GetServiceCatTypes(); ?>
 </div>
 <!-- End Main content-->
 
@@ -14,9 +14,11 @@
 <script type="text/javascript">
 
 
-	$(document).ready(function(){
 
-		$("#dropdown-list").html('<div class="dropdown"><button class="btn dropdown-toggle text-white border-white" type="button" id="filter-bookings" data-bs-toggle="dropdown" aria-expanded="false">IN TEMPLE BOOKINGS</button><ul class="dropdown-menu" aria-labelledby="filter-bookings"><li><a class="dropdown-item" href="#" data-value="IN-TEMPLE">IN TEMPLE BOOKINGS</a></li><li><a class="dropdown-item" href="#" data-value="AWAY-TEMPLE">AWAY TEMPLE BOOKINGS</a></li><li><a class="dropdown-item" href="#" data-value="EVENTS">EVENTS BOOKINGS</a></li>				</ul></div>');
+	$(document).ready(function(){
+		
+
+		$("#dropdown-list").html('<div class="dropdown"><button class="btn dropdown-toggle text-white border-white" type="button" id="filter-bookings" data-bs-toggle="dropdown" aria-expanded="false">IN TEMPLE BOOKINGS</button><ul class="dropdown-menu filter-bookings" aria-labelledby="filter-bookings"><li><a class="dropdown-item" href="#" data-value="IN-TEMPLE">IN TEMPLE BOOKINGS</a></li><li><a class="dropdown-item" href="#" data-value="AWAY-TEMPLE">AWAY TEMPLE BOOKINGS</a></li><li><a class="dropdown-item" href="#" data-value="EVENTS">EVENTS BOOKINGS</a></li>				</ul></div>');
 
 		var selectedValue = 'IN-TEMPLE';
 
@@ -35,7 +37,12 @@
 			success: function(data) {
 				$("#TableData").html(data);
 				$('#myBookings').DataTable( {
-					order: [[ 0, 'desc' ]]
+					order: [[ 0, 'desc' ]],
+					"searching": false,
+					"lengthChange": false,
+					language: {
+						emptyTable: "No Bookings Available to show.."
+					}
 				} );
 
 				if (selectedValue == 'IN-TEMPLE') {
