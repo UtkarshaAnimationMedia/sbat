@@ -5,7 +5,6 @@
     font-style: normal;
     text-decoration: none;
     text-transform: none;
-    letter-spacing: 0.5px;
   }
   .navbar-mobile ul {
     display: block;
@@ -51,7 +50,7 @@
     left: 0; 
   }
   .navbar a, .navbar a:focus {
-    padding: 10px 20px 10px 20px!important;
+    padding: 10px 15px 10px 15px!important;
   }
   #header{
     color: white;
@@ -78,6 +77,14 @@
 
         <li><a class="navlink <?php if($page == 'Donations') { ?>  active   <?php } ?>" href="<?=base_url('donations')?>"<?php if($page == 'Donation') { ?> class="active"  <?php } ?>>DONATIONS</a></li>
 
+           <li class="dropdown">
+          <a class="navlink <?php if($page == 'CLASSES')  { ?>active<?php } ?>" href="javascript:void()" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> CLASSES <i class="fa fa-caret-down"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a  href="<?=base_url('sat-preparation')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'SAT-PREPARATION') { ?>active<?php } ?>" >SAT PREPARATION</a></li>
+            <li><a  href="<?=base_url('about-deities')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-DEITY') { ?>active<?php } ?>">ABOUT DEITIES</a></li>
+          </ul>
+        </li>
+
         <li><a class="navlink <?php if($page == 'Gallery') { ?> active  <?php } ?>" href="<?=base_url('gallery')?>">GALLERY</a></li>
 
         <li class="dropdown">
@@ -86,9 +93,9 @@
             <li><a  href="<?=base_url('about-temple')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-TEMPLE') { ?>active<?php } ?>" >ABOUT TEMPLE</a></li>
             <li><a  href="<?=base_url('about-deities')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-DEITY') { ?>active<?php } ?>">ABOUT DEITIES</a></li>
             <li><a  href="<?=base_url('about-priest')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-PRIEST') { ?>active<?php } ?>">ABOUT PRIESTS</a></li>
-            <li><a  href="<?=base_url('about-committee')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-COMMITTEE') { ?>active<?php } ?>">ABOUT COMMITTEE</a></li>
+           <!--  <li><a  href="<?=base_url('about-committee')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-COMMITTEE') { ?>active<?php } ?>">ABOUT COMMITTEE</a></li>
             <li><a  href="<?=base_url('general-reference')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'GENERAL-REFERENCE') { ?>active<?php } ?>">GENERAL REFERENCE</a></li>
-            <li><a  href="<?=base_url('financial-statements')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'FINANCIAL-STATEMENTS') { ?>active<?php } ?>">FINANCIAL STATEMENTS</a></li>
+            <li><a  href="<?=base_url('financial-statements')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'FINANCIAL-STATEMENTS') { ?>active<?php } ?>">FINANCIAL STATEMENTS</a></li> -->
           </ul>
         </li>
 

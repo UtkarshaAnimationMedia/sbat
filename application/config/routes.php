@@ -34,8 +34,9 @@ $route['puja-sponsorship'] = 'Sponsornow';
 
 
 $route['about-temple'] = 'About_Temple/About_temple';
+$route['sat-preparation'] = 'Classes/satPreparation';
 $route['managements'] = 'ManagementSettings';
-$route['about-committee'] = 'About_Temple/About_committee';
+
 $route['about-deities'] = 'About_Temple/About_deity';
 $route['about-priest'] = 'About_Temple/About_priest';
 $route['volunteer'] = 'Forms/Volunteers';
@@ -46,28 +47,6 @@ $route['send/your-query'] = 'Home/submitContactForm';
 
 $route['event/(:any)/(:any)'] = 'Home/GetUpcomingEventById/$1/$2';
 $route['all-upcoming-events'] = 'Home/allUpcomingEvents';
-
-
-$route['temple-history'] = 'About_Temple/TempleHistory';
-$route['article-bylaws'] = 'About_Temple/Bylaws';
-$route['voluntary-service'] = 'About_Temple/VoluntaryService';
-$route['careers'] = 'About_Temple/Careers';
-$route['report'] = 'About_Temple/Reports';
-
-
-
-
-// =============================================================================================
-
-    $route['visit-info/location-directions'] = 'VisitInfo/Location_Directions';
-    $route['visit-info/hotels'] = 'VisitInfo/Hotels';
-    $route['visit-info/faq'] = 'VisitInfo/Faqs';
-    $route['visit-info/prasadam-policy'] = 'VisitInfo/Prasadam_Policy';
-
-//===============================================================================================
-
-
-
 $route['add-volunteer'] = 'Forms/AddVolunteer';
 
 // Admin Redirections

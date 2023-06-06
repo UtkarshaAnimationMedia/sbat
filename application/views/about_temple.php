@@ -6,29 +6,49 @@
 
 	<!-- ======= Temple Services Section ======= -->
 	<section id="temple-services" class="temple-services" style="background-image: linear-gradient(var(--page-wrapper-bg-color), white);">
-		<div class="container">
 
+		<div class="container-fluid">
+			<h2 id="temple-services" class="text-center bottomborder">About <?= GetProjectName(); ?></h2>
 
-			<div class="container-fluid">
-				<h2 id="temple-services" class="text-center bottomborder">About <?= GetProjectName(); ?></h2>
-
+			<div class="container">
 				<div class="row">
-					<div class="col-md-3" data-aos="fade-left">
-						<img src="<?=base_url('assets/img/about-temple/SitaRam-1.jpg');?>" class="w-100 img-fluid">
-					</div>
-					<div class="col-md-9 mt-5" data-aos="fade-right">
-						<h3 style="text-align:left;">Our Mission</h3>
-						<p style="text-align:left;">Sri Bhakta Anjaneya Temple's (SBAT) mission is to provide authentic religious service per the sastras to help individuals, families and the community at large. The mission also is to preserve and propagate the learning of the Vedas, Sastras, Puranas, Hindu traditions and to imbibe the Sanatana dharma values, culture and heritage into the future generations.
-						</p>
-						<h3 style="text-align:left;">Founder</h3>
-						<p style="text-align:left;">Our organization was established by some of the most prominent persons in the Hindu world. They were and still are the core people of our organization and the website itself.</p>
+					<div class="col-md-8" data-aos="fade-right">
+						<h3 style="text-align:left;font-family: 'Tienne',Sans-serif !important;font-weight: 700; text-transform: capitalize; line-height: 51px;">Sri Rama Jaya Rama Jaya Jaya Rama</h3>
+						<p style="text-align:left;">Sri Bhakta Anjaneya Temple’s (SBAT) mission is to provide authentic religious service per the sastras to help individuals, families and the community at large. The mission also is to preserve and propagate the learning of the Vedas, Sastras, Puranas, Hindu traditions and to imbibe the Sanatana dharma values, culture and heritage into the future generations.
+						</p><br>
+						<p style="text-align:left;">Our organization was established by some of the most prominent persons in the Hindu world. They were and still are the core people of our organization and the website itself..</p>
 
+					</div>
+					<div class="col-md-4" data-aos="fade-left">
+						<img src="https://sbat.vaaptech.com/wp-content/uploads/elementor/thumbs/Sri-Bhaktha-Anjaneya-phjtdfvhrdcc3550p0gdmtzvavogo3lkryhpkposn4.jpg" class="rounded shadow w-100 img-fluid">
 					</div>
 					
 				</div>
 			</div>
-			
 
+
+
+		</div>
+		<div class="container-fluid bg-white">
+			<div class="container">
+				<div class="row mt-5">
+					<div class="col-md-12" data-aos="fade-right">
+						<h3 style="text-align:center;font-family: 'Tienne',Sans-serif !important;font-weight: 700; text-transform: capitalize; line-height: 51px;">SBAT Mission</h3>
+						<h4 style="text-align:center;font-family: 'Tienne',Sans-serif !important;font-weight: 700; text-transform: capitalize; line-height: 51px;">The Panchasheel (Mission) Of SBA Temple Are</h4>
+						
+						<ul style="font-weight: normal;line-height: 2rem;">
+							<li>Provide authentic religious service to help individuals and the community at large to perform various karmas.</li>
+							<li>Support the community as a whole by actively participating in various social causes.</li>
+							<li>Preserve and propagate the learning of the Vedas, Sastras and Puranas for generations to come.</li>
+							<li>Promote Hindu traditions, values, culture and heritage including music, dance, slokas and sanskrit among the current and future generations.</li>
+							<li>Protect the environment by implementing and supporting afforestation both within the temple property and across the world.</li>
+						</ul>
+
+						<p>Our organization was established by some of the most prominent persons in the Hindu world. They were and still are the core people of our organization and the website itself.</p>
+
+					</div>
+				</div>
+			</div>
 		</div>
 	</section><!-- End Temple Services Section -->
 
@@ -37,8 +57,8 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-    window.scrollTo({ top: 225, behavior: 'smooth'});
-});
+		window.scrollTo({ top: 225, behavior: 'smooth'});
+	});
 </script>
 <?php $this->load->view('includes/footer') ?>
 <?php $this->load->view('includes/script') ?>
