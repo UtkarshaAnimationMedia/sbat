@@ -63,7 +63,7 @@
 </style>
 
 <!-- ======= Header ======= -->
-<header id="header" class="d-flex align-items-center menu-bg" style="border-top: 1px solid white;">
+<header id="header" class="d-flex align-items-center menu-bg" style="border-top: 2px solid #ffffff;">
   <div class="container d-flex justify-content-center" id="navmobile">
     <nav id="navbar" class="navbar">
       <ul>
@@ -77,13 +77,13 @@
 
         <li><a class="navlink <?php if($page == 'Donations') { ?>  active   <?php } ?>" href="<?=base_url('donations')?>"<?php if($page == 'Donation') { ?> class="active"  <?php } ?>>DONATIONS</a></li>
 
-           <li class="dropdown">
+        <!-- <li class="dropdown">
           <a class="navlink <?php if($page == 'CLASSES')  { ?>active<?php } ?>" href="javascript:void()" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> CLASSES <i class="fa fa-caret-down"></i></a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li><a  href="<?=base_url('sat-preparation')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'SAT-PREPARATION') { ?>active<?php } ?>" >SAT PREPARATION</a></li>
             <li><a  href="<?=base_url('about-deities')?>" class="text-uppercase dropdown-item navlink <?php if($page == 'ABOUT-DEITY') { ?>active<?php } ?>">ABOUT DEITIES</a></li>
           </ul>
-        </li>
+        </li> -->
 
         <li><a class="navlink <?php if($page == 'Gallery') { ?> active  <?php } ?>" href="<?=base_url('gallery')?>">GALLERY</a></li>
 

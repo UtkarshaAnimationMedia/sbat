@@ -37,7 +37,7 @@
 					<tr>
 						<td><?=$val['tokenNumber']?></td>
 						<td><?=camelCase($val['ServiceSetup']);?></td>
-						<td><?= '$'.sprintf("%.2f",$val['serviceAmount'])?></td>
+						<td><?= '$&nbsp;'.sprintf("%.2f",$val['serviceAmount'])?></td>
 						<td><?=camelCase($val['serviceCategoryTypes']);?></td>
 						<td><?=camelCase($val['serviceTypes']);?></td>
 						<td>

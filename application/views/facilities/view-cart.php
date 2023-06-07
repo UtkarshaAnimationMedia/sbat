@@ -50,7 +50,8 @@
 	}
 </style>
 <main id="main">
-	<section  style="background-image: linear-gradient(var(--page-wrapper-bg-color), white);">
+	<section>
+		<div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<?php $cart_items = $this->session->userdata($session_data); 
 
@@ -59,7 +60,7 @@
 
 		<span id="cart-amount"  class="allPrice d-none"><?= sprintf("%.2f", $cart_items['totalPrice']); ?></span>
 		
-		<div class="container">
+		<div class="container mt-3">
 
 			<table id="cart" class="table table-responsive shadow">
 				<thead style="background-color: #70011D; color: #fff;">
@@ -73,9 +74,12 @@
 				</thead>
 
 				<?php 
+				$facilitiesQty = 0;
                       // print_r($cart_items);
-				foreach ($cart_items['ids'] as $key => $value) { ?>
+				foreach ($cart_items['ids'] as $key => $value) { 
+					$facilitiesQty += $facilitiesQty+$cart_items['qty'][$key];
 
+					?>
 					<tbody>
 						<tr style=" background: white">
 							<td data-th="Product">
@@ -101,21 +105,22 @@
 				<?php  $subTotal =  price_format(((( $cart_items['totalPrice'] * @$GeneralSettings['TaxPercent'] ) / 100) +  $cart_items['totalPrice']), 2);   ?>
 				
 			</table>
-
-
 			<div class="row">
 				<div class="col-md-6">
-					<a href="<?=base_url('services')?>" class="btn btn-warning"><i class="fa fa-angle-left"></i> Go Back to Services</a>
+					<a href="<?=base_url('facilities')?>" class="btn btn-warning"><i class="fa fa-angle-left"></i> Go Back to Facilities</a>
 				</div>
 				<div class="col-md-6 text-end">
 					<span  id="cart-amount" class="hidden-xs text-center"><strong>Total <?=    @$currencySymbol['currencySymbol'].' '.price_format((((  $cart_items['totalPrice'] *  @$GeneralSettings['TaxPercent'] ) / 100) + $cart_items['totalPrice']), 2 );?></strong>
 					</span>
-					<span><a href="javascript:void(0)" onclick="CartCheckLogin('services')" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></span>
+					<span><a href="javascript:void(0)" onclick="CartCheckLogin('facilities')" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></span>
 				</tr>
 			</div>
 		</div>
 	</div>
 </section>
+
+<div class="mt-3" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
+
 </main>
 
 <!-- ==========Language Translator Code============= -->
@@ -126,7 +131,9 @@
 
 	function CartCheckLogin(page){
 
-		if ( $(".allPrice").text() != 0.00) {
+		var TotalQuantity = "<?=$facilitiesQty?>";
+
+		if ( TotalQuantity > 0) {
 			// loader.on();
 
 			var page_name = page;
@@ -142,23 +149,8 @@
 					if (data == 0) {
 						openLoginModal(page_name);
 					}else{
-						if (page_name == 'service-name') {
-
-							$.ajax({
-								url: "<?= base_url('Services/AddServiceRequest'); ?>",
-								type: "POST",
-								dataType: "json",
-								success: function(data) 
-								{
-									loader.off();
-									console.log(data);
-								}             
-							});
-
-						}else{
-
-							window.location.href = "<?=base_url('checkout/service')?>";
-						}
+						
+							window.location.href = "<?=base_url('facilities/checkout')?>";
 					}
 				}
 			});

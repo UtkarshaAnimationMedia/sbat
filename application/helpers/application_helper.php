@@ -1422,7 +1422,7 @@ function getServicesByServiceType($serviceCategory,$serviceType, $session_data){
 
 				<div class="row m-0 p-0">
 				<div class="col-md-2 m-0 p-0">
-				<div class="crop-center img-responsive bg-light" style="background-image: url('.$src.');style="border-radius: 9px;box-shadow: 2px 2px 10px #00000030; height: 100px;width:100%;"">
+				<div class="crop-center img-responsive bg-light" style="background-image: url('.$src.');border-radius: 9px;height: 100px;width:100%;'.($item['Image'] ? '' : 'width: 83%;margin-left: 10px;').'">
 				</div>
 				</div>
 
@@ -1490,44 +1490,27 @@ function getServicesByServiceType($serviceCategory,$serviceType, $session_data){
 				';
 			}else{
 				$html .= '<tr style="border-top:2px solid #FFEFE2;border-bottom:2px solid #FFEFE2">
-				<td class="p-0 col-7 " style="color:#fff!important">
+				<td class="p-0 col-8 " style="color:#fff!important">
 				<div class="col-md-12 m-0 p-0">
+
+
 				<div class="row m-0 p-0">
 				<div class="col-md-2 m-0 p-0">
-				<div class="crop-center img-responsive bg-light" style="background-image: url('.$src.');style="border-radius: 9px;box-shadow: 2px 2px 10px #00000030; height: 100px;width:100%;"">
+				<div class="crop-center img-responsive bg-light" style="background-image: url('.$src.');border-radius: 9px;height: 100px;width:100%;'.($item['Image'] ? '' : 'width: 83%;margin-left: 10px;').'">
+				</div>
 				</div>
 
-				</div>
+
 				<div class="col-md-10" style="background-color:#005d4b!important;">
+				
 				<label class="pt-2" style="padding-left: 12px;font-size:20px!important;text-shadow:1px 1px 0px black!important;">'.$item['refDataName'].'</label>
 				<br>
 
 
-				<div class="row m-0 p-0">
-				<div class="col-md-3 m-0 p-0">
-				<div class="input-group">
-				<div class="input-group-addon" style="color: #F9F61F;background-color: #e9ecef00;border: 1px solid #ced4da00;padding-right: 10px;">
-				<label class="fa fa-calendar" for="datepicker_'.$item['_id'].'"></label>
-				</div>
-
-				<input type="text" id="datepicker_'.$item['_id'].'"  class="datepicker-services form-control form-control-sm date-time-placeholder" style="color: #ffffff;background-color: #ffffff00;opacity: 1;border: 0;padding: 0px!important;" placeholder="Select Date" '.(isset($item['startDate']) && $item['startDate'] !='' ? 'value="'.$item['startDate'].'" disabled' : ''. ((in_array($item['_id'], $session_data['ids']))?  'value="'.($session_data['startDate'][array_search($item['_id'], $session_data['ids'])]).'"'  :'') .'').' readonly>
+				'.$dateTimeCode.'
 
 
-				</div>
-				</div>
-				<div class="col-md-3">
-
-				<div class="input-group">
-				<div class="input-group-addon timepicker-services" style="color: #F9F61F;background-color: #e9ecef00;border: 1px solid #ced4da00;padding-right: 10px;">
-				<label class="fa fa-clock-o" for="timepicker_'.$item['_id'].'"></label>
-				</div>
-
-				<input type="text" id="timepicker_'.$item['_id'].'"  class="timepicker-services form-control form-control-sm date-time-placeholder" style="color: #ffffff;background-color: #ffffff00;opacity: 1;border: 0;padding: 0px!important;" '.(isset($item['startTime']) && $item['startTime'] !='' ? 'value="'.$item['startTime'].'" disabled' : ''. ((in_array($item['_id'], $session_data['ids']))?  'value="'.($session_data['startTime'][array_search($item['_id'], $session_data['ids'])]).'"'  :'') .'').'  placeholder="--:--">
-				</div>
-				</div>
-				</div>
-
-				<p class="text-white mb-0 pb-2" style="line-height:20px;font-size:13px!important">
+				<p class="text-white mb-0 pb-2" style="padding-left: 12px;line-height:20px;font-size:13px!important">
 				'.$limited_string.'
 				</p>
 
@@ -1535,13 +1518,6 @@ function getServicesByServiceType($serviceCategory,$serviceType, $session_data){
 				</div>
 				</div>
 				</td>
-
-
-				
-
-
-				<td class="text-center col-2 align-middle"  style="background-color:#005d4b;"><span></span></td>
-
 				<td colspan="2" class="text-end col-2 align-middle"  style="background-color:#005d4b;color:#fff!important;font-weight:bold;font-size:18px!important;padding: 5px 5px!important;">
 
 

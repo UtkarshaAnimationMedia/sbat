@@ -421,7 +421,7 @@ class Dashboard extends CI_Controller {
 					}
 					$html .= '<tr><td class="text-center">'.$val['tokenNumber'].'</td>';
 					$html .= '<td>'.camelCase($val['ServiceSetup']).'</td>';
-					$html .= '<td style="text-align:right;padding-right:25px">$ '.sprintf("%.2f",$val['serviceAmount']).'</td>';
+					$html .= '<td style="text-align:right;padding-right:25px">$&nbsp;'.sprintf("%.2f",$val['serviceAmount']).'</td>';
 
 					$html .= '<td class="text-center">'.$val['recCreDate'].'</td>';
 					$html .= '<td class="text-center">'.$status.'</td>';
@@ -539,7 +539,7 @@ class Dashboard extends CI_Controller {
 						}
 						$html .= '<tr><td class="text-center">'.$val['tokenNumber'].'</td>';
 						$html .= '<td>'.camelCase($val['ServiceSetup']).'</td>';
-						$html .= '<td style="text-align:right;padding-right:25px">$ '.sprintf("%.2f",$val['serviceAmount']).'</td>';
+						$html .= '<td style="text-align:right;padding-right:25px">$&nbsp;'.sprintf("%.2f",$val['serviceAmount']).'</td>';
 						$html .= '<td class="text-center">'.$val['serviceDate'].'</td>';
 						$html .= '<td class="text-center">'.$val['recCreDate'].'</td>';
 						$html .= '<td class="text-center">'.$status.'</td>';

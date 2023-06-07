@@ -7,7 +7,8 @@
 <main id="main">
 
 	<!-- ======= Coming Soon ======= -->
-	<section style="background-color:var(--page-wrapper-bg-color)!important">
+	<section>
+		<div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 		<div class="container" >
 			<center> <h2 class="bottomborder" style="font-weight:bold!important;font-size: 35px!important;">Volunteers Registration Form</h2> </center><br>
 			<div class="row mb-3">
@@ -122,6 +123,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="mt-3" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 	</section>
 	<!-- End Coming Soon -->
 </main><!-- End #main -->

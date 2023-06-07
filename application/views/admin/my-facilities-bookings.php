@@ -22,6 +22,10 @@
 		$list = '';
 		foreach ($rental_types as $key => $value) {
 			$list .= '<li><a class="dropdown-item" href="#" data-value="'.$value['refDataName'].'">'.$value['refDataName'].'</a></li>';
+
+			if ($key == 0) {
+				$selectedValue = $value['refDataName'];
+			}
 		}
 
 		$html = '<div class="dropdown"><button class="btn dropdown-toggle text-white border-white" type="button" id="filter-bookings" data-bs-toggle="dropdown" aria-expanded="false">IN TEMPLE BOOKINGS</button><ul class="dropdown-menu filter-bookings" aria-labelledby="filter-bookings">'.$list.'</ul></div>';
@@ -29,9 +33,9 @@
 		?>
 		$("#dropdown-list").html('<?=$html?>');
 
-		var selectedValue = 'RENTALS';
+		var selectedValue = '<?=$selectedValue?>';
 
-	$("#filter-bookings").text("RENTALS"); // set initial text
+	$("#filter-bookings").text("<?=$selectedValue?>"); // set initial text
 
 	$('.dropdown-menu a').click(function(e) {
 		e.preventDefault(); // prevent link from navigating

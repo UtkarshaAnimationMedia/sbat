@@ -16,6 +16,7 @@ class Services extends CI_Controller {
 		$currency = '';
 		$data['currency'] = $this->$currency;
 		$data['page'] = 'Services';
+		$data['title'] = 'Services';
 		// $data['service_cat_types'] = array_reverse(GetServiceCatTypes());
 		$this->load->view('services-cart',$data);	
 	}
@@ -127,7 +128,6 @@ class Services extends CI_Controller {
 
 
 		public function AddToCart(){
-
 
 			if ($this->session->userdata('logged_in') == 1) {
 
@@ -275,8 +275,6 @@ class Services extends CI_Controller {
 			if ($this->session->userdata('logged_in') == 1) {
 
 				$cart_data =  $this->session->userdata('service_cart');
-
-
 				
 				if ($serviceRequest == '') {
 
@@ -329,16 +327,15 @@ class Services extends CI_Controller {
 				foreach($data as $item){
 
 					$name_parts = explode(" ", $this->session->userdata('refDataName'));
-					$first_name = $name_parts[0];
-					$last_name = $name_parts[1];
-					$fname = $first_name;
-					$lname = $last_name;
+					// print_r($name_parts);
+					 $first_name = $name_parts[0];
+					 $last_name = $name_parts[1];
 
 					$newData = array(); 
 
 					$newData['memberId'] = $this->session->userdata('id');
 					$newData['serviceId'] = $item['_id'];
-					$newData['serviceRequestName'] = $fname.' '.$lname;
+					$newData['serviceRequestName'] = $first_name.' '.$last_name;
 					$newData['prsnEmail'] = $this->session->userdata('email');
 					$newData['prsnPhone'] = $this->session->userdata('phone');
 					$newData['clientId'] = ApiBaseUrl()['clientID'];

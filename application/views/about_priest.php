@@ -4,8 +4,9 @@
 <main id="main">
 
 	<!-- ======= About Committee Section ======= -->
-	<section  style="background-color: var(--page-wrapper-bg-color)!important">
+	<section>
 		<div class="container">
+			<div class="mt-3" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 			<center> <h2 class="bottomborder" style="font-weight:bold!important;font-size: 35px!important;">About Priest</h2> </center>
 			<div class="container my-5">
 				<div class="row">
@@ -96,6 +97,7 @@
 				</div>
 
 			</div>
+			<div class="mt-2" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 		</section><!-- End About Committee Section -->
 
 

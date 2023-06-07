@@ -28,7 +28,7 @@
 						<td><?=$val->batchNo;?></td>
 						<td><?=$val->transactionId;?></td>
 						<td><?=camelCase($val->paymentsData[0]->ServiceSetup);?></td>
-						<td style="text-align: right;padding-right: 21px"><?= '$'.sprintf("%.2f",$val->totalAmount);?></td>
+						<td style="text-align: right;padding-right: 21px"><?= '$&nbsp;'.sprintf("%.2f",$val->totalAmount);?></td>
 						<td><?=camelCase($val->paymentType);?></td>
 						<td><?=camelCase($val->source);?></td>
 						<td><?=$val->recCreDate;?></td>

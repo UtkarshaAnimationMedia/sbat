@@ -1,10 +1,10 @@
 :root {
   --blue: #1e90ff;
   --white: #ffffff; 
-  --headerFooter: #B02135; 
+  --headerFooter: #9d0027; 
   --orange: #F26938;
-  --menu-bg : #7D1456;
-  --page-wrapper-bg-color : #FFEFE2;  /*   Page wrapper bg color   */
+  --menu-bg : #F5F17C;
+  --page-wrapper-bg-color : #ffdcbf!important;  /*   Page wrapper bg color   */
   --home-card-bg : #FDF295;  /*   Home Page Card flash news, punchagam, upcoming events   */
   --active-devotee-dashboard-menu : #760010;
   --devotee-dashboard-menu-color : #fff;

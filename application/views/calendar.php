@@ -2,82 +2,82 @@
 <?php $this->load->view('includes/topbar') ?>
 <?php $this->load->view('includes/header') ?>
 
-  <style type="text/css">
-    .fc-day-header{
-      padding: 8px;
-      text-transform: uppercase!important;
-      color: #44233b;
-      background: #f6e0ce !important;
-      padding: 1.1em 0 !important;
-      font-weight: 500;
-      letter-spacing: 0;
-      text-transform: capitalize;
-      position: relative;
-    }
- 
-   
-    .fc-unthemed .fc-row, .fc-unthemed tbody, .fc-unthemed td, .fc-unthemed th, .fc-unthemed thead {
-      border-color: #ffefe2;
-    }
-    .fc td, .fc th {
-      border-style: solid;
-      border-width: 10px;
-      padding: 0;
-      vertical-align: top;
-      background-color: white;
-    }
-    .fc .fc-row .fc-content-skeleton table, .fc .fc-row .fc-content-skeleton td, .fc .fc-row .fc-helper-skeleton td {
-      background: 0 0;
-      border-color: transparent;
-      padding: 3px;
-      margin: 1px;
-      padding-top: 0px;
-    }
-    .fc .fc-button-group>:first-child {
-      margin-left: 0;
-      padding: -13px;
-      color: black;
-      text-transform: uppercase;
-      background-color: #ffefe2;
-    }
-    .fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active {
-      z-index: 4;
-      background: #aa1f32!important;
-      color: white!important;
-    }
-    .fc .fc-button-group>* {
-      float: left;
-      margin: 0 0 0 -1px;
-      background: #ffefe2;
-      color: black;
-      text-transform: uppercase;
-    }
-    .closeButton {
-     border-radius: 5px!important;
-     background: #008080 !important;
-     box-shadow: 1px 1px 10px #7e455561!important;
-     text-transform: uppercase!important;
-   }
-
-   #calendarEventDetails td {
-   border: 1px solid #A71333;
-    padding: 17px;
-    text-align: center;
-    font-weight: 800;
-    text-shadow: 0px 1px 13px #fff700;
-    color: #9d0000;
-
-}
-
-
-#calendarEventDetails th {
-   border: 1px solid #A71333;
-    padding: 17px;
-    text-align: center;
-    font-weight: 800;
-    text-shadow: 0px 1px 13px #fff700;
-    color: #9d0000;
+<style type="text/css">
+  .fc-day-header{
+    padding: 8px;
+    text-transform: uppercase!important;
+    color: #44233b;
+    background: #f6e0ce !important;
+    padding: 1.1em 0 !important;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: capitalize;
+    position: relative;
   }
+  
+  
+  .fc-unthemed .fc-row, .fc-unthemed tbody, .fc-unthemed td, .fc-unthemed th, .fc-unthemed thead {
+    border-color: #ffefe2;
+  }
+  .fc td, .fc th {
+    border-style: solid;
+    border-width: 10px;
+    padding: 0;
+    vertical-align: top;
+    background-color: white;
+  }
+  .fc .fc-row .fc-content-skeleton table, .fc .fc-row .fc-content-skeleton td, .fc .fc-row .fc-helper-skeleton td {
+    background: 0 0;
+    border-color: transparent;
+    padding: 3px;
+    margin: 1px;
+    padding-top: 0px;
+  }
+  .fc .fc-button-group>:first-child {
+    margin-left: 0;
+    padding: -13px;
+    color: black;
+    text-transform: uppercase;
+    background-color: #ffefe2;
+  }
+  .fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active {
+    z-index: 4;
+    background: #aa1f32!important;
+    color: white!important;
+  }
+  .fc .fc-button-group>* {
+    float: left;
+    margin: 0 0 0 -1px;
+    background: #ffefe2;
+    color: black;
+    text-transform: uppercase;
+  }
+  .closeButton {
+   border-radius: 5px!important;
+   background: #008080 !important;
+   box-shadow: 1px 1px 10px #7e455561!important;
+   text-transform: uppercase!important;
+ }
+
+ #calendarEventDetails td {
+   border: 1px solid #A71333;
+   padding: 17px;
+   text-align: center;
+   font-weight: 800;
+   text-shadow: 0px 1px 13px #fff700;
+   color: #9d0000;
+
+ }
+
+
+ #calendarEventDetails th {
+   border: 1px solid #A71333;
+   padding: 17px;
+   text-align: center;
+   font-weight: 800;
+   text-shadow: 0px 1px 13px #fff700;
+   color: #9d0000;
+ }
 
 /*Modal Css*/
 
@@ -87,12 +87,12 @@
 }
 
 .modal-confirm.modal-dialog {
-    margin-top: 10%;
+  margin-top: 10%;
 }
 
 .modal-confirm {
-    color: #877676;
-    width: 550px;
+  color: #877676;
+  width: 550px;
 }
 
 
@@ -107,11 +107,11 @@
   position: relative;
 }
 .modal-confirm h4 {
-     text-align: center;
-    font-size: 24px;
-    margin: 22px 0 -15px;
-    color: #980c3c;
-    font-weight: 800;
+ text-align: center;
+ font-size: 24px;
+ margin: 22px 0 -15px;
+ color: #980c3c;
+ font-weight: 800;
 }
 .modal-confirm .form-control, .modal-confirm .btn {
   min-height: 40px;
@@ -151,13 +151,13 @@
 }
 .modal-confirm .btn {
   color: #fff;
-    border-radius: 4px!important;
-    background: #980c3c;
-    text-decoration: none;
-    transition: all 0.4s;
-    line-height: normal;
-    border: none;
-    padding: 0px 36px;
+  border-radius: 4px!important;
+  background: #980c3c;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  border: none;
+  padding: 0px 36px;
 }
 .modal-confirm .btn:hover, .modal-confirm .btn:focus {
   background: #da2c12;
@@ -169,47 +169,41 @@
 }
 
 </style>
-<main id="main"  style="background-color:var(--page-wrapper-bg-color)!important">
+<main id="main">
 
-  <div class="container py-5">
-
-
-
-    <!-- Modal HTML -->
-    <div id="modalevent" class="modal modal-lg fade">
-      <div class="modal-dialog modal-confirm">
-
+  <section class="temple-services">
+    <div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
+    <div class="container py-5" >
+      <!-- Modal HTML -->
+      <div id="modalevent" class="modal modal-lg fade">
+        <div class="modal-dialog modal-confirm">
 
 
-        <div class="modal-content" style="background-image:url('<?=base_url("assets/img/63f8592dd5885.jpg")?>');position: relative;background-size: cover;">
-          <div class="modal-header">
-            <img src="<?=base_url('assets/img/image-1672655162220-934535808.png')?>" class="icon-box">      
-            <h4 class="modal-title w-100 bottomborder">Event Details</h4> 
+
+          <div class="modal-content" style="background-image:url('<?=base_url("assets/img/63f8592dd5885.jpg")?>');position: relative;background-size: cover;">
+            <div class="modal-header">
+              <img src="<?=base_url('assets/img/image-1672655162220-934535808.png')?>" class="icon-box">      
+              <h4 class="modal-title w-100 bottomborder">Event Details</h4> 
+            </div>
+            <div class="modal-body p-0">
+              <table class="table table-responsive table-bordered mt-4" style="background: #ffffff3b;;" >
+               <tbody id="calendarEventDetails">
+
+               </tbody>
+             </table>
+           </div>
+           <div class="modal-footer p-0">
+            <button type="button" class="mx-auto d-block btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
-          <div class="modal-body p-0">
-            <table class="table table-responsive table-bordered mt-4" style="background: #ffffff3b;;" >
-             <tbody id="calendarEventDetails">
-
-             </tbody>
-           </table>
-         </div>
-         <div class="modal-footer p-0">
-          <button type="button" class="mx-auto d-block btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
+
       </div>
-
+    </div>  
+    <div class="calendar" id="calendar" >
     </div>
-  </div>  
-
-
-
-
-
-  <div class="calendar" id="calendar" >
-
   </div>
-
-</div>
+  <div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
+</section>
 
 <?php 
 

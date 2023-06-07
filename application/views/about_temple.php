@@ -5,9 +5,10 @@
 <main id="main">
 
 	<!-- ======= Temple Services Section ======= -->
-	<section id="temple-services" class="temple-services" style="background-image: linear-gradient(var(--page-wrapper-bg-color), white);">
+	<section id="temple-services" class="temple-services">
 
 		<div class="container-fluid">
+			<div  style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 			<h2 id="temple-services" class="text-center bottomborder">About <?= GetProjectName(); ?></h2>
 
 			<div class="container">
@@ -20,18 +21,16 @@
 
 					</div>
 					<div class="col-md-4" data-aos="fade-left">
-						<img src="https://sbat.vaaptech.com/wp-content/uploads/elementor/thumbs/Sri-Bhaktha-Anjaneya-phjtdfvhrdcc3550p0gdmtzvavogo3lkryhpkposn4.jpg" class="rounded shadow w-100 img-fluid">
+						<img src="https://sbat.vaaptech.com/wp-content/uploads/elementor/thumbs/Sri-Bhaktha-Anjaneya-phjtdfvhrdcc3550p0gdmtzvavogo3lkryhpkposn4.jpg" class="rounded shadow img-fluid" style="width:76%">
 					</div>
 					
 				</div>
 			</div>
-
-
-
 		</div>
 		<div class="container-fluid bg-white">
+			<div class="mt-3" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 			<div class="container">
-				<div class="row mt-5">
+				<div class="row">
 					<div class="col-md-12" data-aos="fade-right">
 						<h3 style="text-align:center;font-family: 'Tienne',Sans-serif !important;font-weight: 700; text-transform: capitalize; line-height: 51px;">SBAT Mission</h3>
 						<h4 style="text-align:center;font-family: 'Tienne',Sans-serif !important;font-weight: 700; text-transform: capitalize; line-height: 51px;">The Panchasheel (Mission) Of SBA Temple Are</h4>

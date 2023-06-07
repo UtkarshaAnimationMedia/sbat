@@ -132,8 +132,8 @@ class Facilities extends CI_Controller {
 	public function ViewCart(){
 		$currency = '';
 		$data['currency'] = $this->$currency;
-		$data['page'] = 'Cart';
-		$data['title'] = 'Cart';
+		$data['page'] = 'Facilities';
+		$data['title'] = 'Facilities';
 		$data['session_data'] = 'facilities_cart';
 		$this->load->view('facilities/view-cart',$data);
 	}

@@ -41,7 +41,7 @@
 					foreach($myServiceRequests_data as $val){ ?> 
 						<tr>
 							<td><?=camelCase($val->ServiceSetup); ?></td>
-							<td><?= '$ '.sprintf("%.2f",$val->serviceAmount);?></td>
+							<td><?= '$&nbsp;'.sprintf("%.2f",$val->serviceAmount);?></td>
 							<td><?= $val->serviceDate || $val->serviceTime ? $val->serviceDate .' / '.$val->serviceTime : '' ; ?></td>
 							<td><?=camelCase($val->serviceCategoryTypes); ?></td>
 							<td><?=$val->priestName?></td>

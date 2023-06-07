@@ -54,9 +54,8 @@
 
 </style>
 <main id="main">
-  <section style="background-color:var(--page-wrapper-bg-color)!important">
-
-
+  <section>
+<div class="mt-3" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
     <div class="container h-100">
 
      <?php 
@@ -173,23 +172,6 @@
                   </fieldset>
                 </div>
 
-                <div class="col-md-6">
-                  <fieldset class="border">
-                    <legend  class="legend-inner float-none w-auto">Adult(s)</legend>
-                    <div class="input-group">
-                      <input type="number" class="form-control" id="adults" onkeydown="disableE(event)" name="adults" placeholder="No of Adults"  aria-label="adults" required>
-                    </div>
-                  </fieldset>
-
-                </div>
-                <div class="col-md-6">
-                  <fieldset class="border">
-                    <legend  class="legend-inner float-none w-auto">Children</legend>
-                    <div class="input-group">
-                      <input type="number" class="form-control" id="children" onkeydown="disableE(event)" name="children" placeholder="No of Children"  aria-label="children" required>
-                    </div>
-                  </fieldset>
-                </div>
 
                 <div class="col-md-6">
                   <fieldset class="border">
@@ -242,7 +224,7 @@
                   <legend  class="legend-inner float-none w-auto required">Event Description</legend>
                   <div class="input-group">
                     <i class="fa fa-file"></i>
-                    <input type="text" class="form-control" name="eventDescription" id="eventDescription" placeholder="Enter Event Description"  aria-label="eventDescription" aria-describedby="eventDescription" required>
+                    <textarea type="text" class="form-control" name="eventDescription" id="eventDescription" placeholder="Enter Event Description"  aria-label="eventDescription" aria-describedby="eventDescription"></textarea>
                   </div>
                 </fieldset>
               </div>
@@ -252,17 +234,13 @@
              <button type="submit" id="eventdetailsButtonn" class="btn btn-success d-none" style="background-color: #008080;padding: 5px 14px;color: #fff;border-radius: 6px!important;font-size: 17px;font-weight: 700;border: 0px!important;margin: 0px 8px;">SUBMIT</button>
            </div>
          </fieldset>
-
-
-
-
        </form>
      </div>
    </div>
 
 
    <div class="row d-flex justify-content-center align-items-center h-100" id="checkoutForm" >
-
+    <div class="mt-3" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
     <div class="col-12">
       <div class="card card-registration card-registration-2 mb-4" style="border-radius: 15px;">
         <div class="card-body p-3">
@@ -405,6 +383,7 @@
      </div>
    </div>
  </div>
+ <div class="mt-3" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 </section>
 </main>
 
@@ -540,59 +519,58 @@
   });
 
 
-  function BookNow(){
+ function BookNow() {
+  var eventDetails = []; 
 
-    var eventDetails = []; 
+  eventDetails.push({
+    eventName: $("#eventName").val(),
+    eventDate: $("#eventDate").val(),
+    eventTime: $("#eventTime").val(),
+    eventAddress: $("#eventLocation").val(),
+    eventState: $("#selectState").val(),
+    eventCity: $("#city").val(),
+    eventLanguage: $("#preferredLanguage").val(),
 
-    eventDetails.push({
-      eventName: $("#eventName").val(),
-      eventDate: $("#eventDate").val(),
-      eventTime: $("#eventTime").val(),
-      eventAddress: $("#eventLocation").val(),
-      eventState: $("#selectState").val(),
-      eventCity: $("#city").val(),
-      eventLanguage: $("#preferredLanguage").val(),
-      adults: $("#adults").val(),
-      children: $("#children").val(),
-      zip: $("#zipcode").val(),
-      eventDescription: $("#eventDescription").val(),
-    });
+    zip: $("#zipcode").val(),
+    eventDescription: $("#eventDescription").val(),
+  });
 
-    loader.on();
-    swal({
-      title: "Confirmation?",
-      text: "Are you want to Request this Facility!",
-      type: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#008080",
-      confirmButtonText: "Yes",
-      closeOnConfirm: false
-    },
-    function(){
-
+  loader.on();
+  swal({
+    title: "Confirmation?",
+    text: "Are you sure you want to request this facility?",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#008080",
+    confirmButtonText: "Yes",
+    closeOnConfirm: false
+  },
+  function(isConfirmed) {
+    if (isConfirmed) {
+      // Disable the button
+      $('.confirm').prop('disabled', true);
+      
       loader.on();
       $.ajax({
         url: "<?=base_url('facilitiesContollers/Facilities/BookFacilities')?>",
         type: "POST",
         dataType: "json",
-        data : {eventDetails},
-        success: function(response) 
-        {
+        data: { eventDetails },
+        success: function(response) {
           loader.off();
           if (response.statusCode == 1) {
             swal({
               html: true,
-              title: "Facility Requested Successful!",
-              text: "<span style='font-weight: 600;margin:5px;padding:5px'>Order No:</span> "+response.data[0].invoiceNo,
+              title: "Facility Request Successful!",
+              text: "<span style='font-weight: 600;margin:5px;padding:5px'>Order No:</span> " + response.data[0].invoiceNo,
               type: "success",
               confirmButtonText: 'OK',
               confirmButtonColor: '#008080',
             },
             function(){
-             window.location.reload(); 
-           });
-
-          }else{
+              window.location.reload(); 
+            });
+          } else {
             swal({
               html: true,
               title: "Failed!",
@@ -605,15 +583,13 @@
               window.location.reload(); 
             });
           }
-
         }             
       });
-
-    });
-
-    loader.off();
-
-  }
+    }
+  });
+  
+  loader.off();
+}
 
 </script>
 <script type="text/javascript" src="<?=base_url('assets/js/time-picker.js')?>"></script>

@@ -16,96 +16,97 @@
   ?>
 
   <!-- ======= Coming Soon ======= -->
-  <section id="temple-services" class="temple-services" style="background-color:var(--page-wrapper-bg-color)!important">
-    <div class="container bg-image shadow-1-strong" >
-      <div class="row">
-        <div class="col-md-12 mx-auto">
-          <div class="row m-0 p-0">
+  <section id="temple-services" class="temple-services">
+   <div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
+   <div class="container bg-image shadow-1-strong">
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+        <div class="row m-0 p-0">
 
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="row m-0 p-0">
-                    <div class="col-md-12 m-0 p-0">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row m-0 p-0">
+                  <div class="col-md-12 m-0 p-0">
 
-                      <!-- Search Bar -->
-                      <div class="px-2 mb-3">
-                        <input type="search" name="q" id="search" class="search-text searchKey" placeholder="Search..." autocomplete="off" style="margin-left: 10px;">
+                    <!-- Search Bar -->
+                    <div class="px-2 mb-3">
+                      <input type="search" name="q" id="search" class="search-text searchKey" placeholder="Search..." autocomplete="off" style="margin-left: 10px;">
+                    </div>
+                    <!-- Search Bar -->
+
+
+
+                  </div>
+
+
+                </div> 
+              </div>
+
+              <div class="col-md-4">
+                <h2 class="bottomborder text-center" style="font-weight:bold!important;font-size: 25px!important;">BOOK A SERVICE</h2>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex justify-content-end align-items-end" style="border-bottom: 20px;">
+                  <div class="text-white px-4">
+
+
+
+                    <div class="row">
+                      <div class="col-md-9 text-center text-dark">
+                        Total Amount
                       </div>
-                      <!-- Search Bar -->
-
-                      
-
                     </div>
 
-
-                  </div> 
-                </div>
-
-                <div class="col-md-4">
-                  <h2 class="bottomborder text-center" style="font-weight:bold!important;font-size: 25px!important;">BOOK A SERVICE</h2>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="d-flex justify-content-end align-items-end" style="border-bottom: 20px;">
-                    <div class="text-white px-4">
-
-
-
-                      <div class="row">
-                        <div class="col-md-9 text-center text-dark">
-                          Total Amount
-                        </div>
-                      </div>
-
-                      <span style="padding-right:6px!important">
-                       <a href="javascript:void(0)" onclick="ViewCart()"> <i class="fa fa-shopping-cart fa-2x" style="color:#000030;"></i>
-                        <span class="cart-count text-dark" style="font-size: 20px!important;"><?=$cart_count?></span></a>
-                      </span>
+                    <span style="padding-right:6px!important">
+                     <a href="javascript:void(0)" onclick="ViewCart()"> <i class="fa fa-shopping-cart fa-2x" style="color:#000030;"></i>
+                      <span class="cart-count text-dark" style="font-size: 20px!important;"><?=$cart_count?></span></a>
+                    </span>
 
 
 
 
-                      <label class="label label-primary" style="background: #000030;padding: 5px 14px;color: white;margin: 0px 8px;border-radius: 6px;font-size: 17px;font-weight: 1000;"><?=$currencySymbol != '' ? $currencySymbol : '$ ';?> <span class="allPrice"><?= sprintf("%.2f", $cartList['totalPrice']); ?></span></label>
+                    <label class="label label-primary" style="background: #000030;padding: 5px 14px;color: white;margin: 0px 8px;border-radius: 6px;font-size: 17px;font-weight: 1000;"><?=$currencySymbol != '' ? $currencySymbol : '$ ';?> <span class="allPrice"><?= sprintf("%.2f", $cartList['totalPrice']); ?></span></label>
 
 
 
-                      <?php if ((isset($GeneralSettings['isMultipleSelect']) && $GeneralSettings['isMultipleSelect'] == 'YES')) { ?>
+                    <?php if ((isset($GeneralSettings['isMultipleSelect']) && $GeneralSettings['isMultipleSelect'] == 'YES')) { ?>
 
-                       <a href="javascript:void(0)" class="btn btn-success" style="background-color: #ffc107;padding: 5px 14px;color: #15102e;border-radius: 6px!important;font-size: 17px;font-weight: 1000;border: 0px!important;margin: 0px 8px;" onclick="CartCheckLogin('services')">
+                     <a href="javascript:void(0)" class="btn btn-success" style="background-color: #ffc107;padding: 5px 14px;color: #15102e;border-radius: 6px!important;font-size: 17px;font-weight: 1000;border: 0px!important;margin: 0px 8px;" onclick="CartCheckLogin('services')">
 
-                        <?php if ((isset($GeneralSettings['payNowText']) && $GeneralSettings['payNowText'] != ''  && $GeneralSettings['payNowText'] != 'null' )) { 
-                         echo $GeneralSettings['payNowText'];
-                       }else{
-                        echo 'PAY NOW';
-                      } ?>
-                    </a>
-                  <?php }else if(isset($GeneralSettings['isMultipleSelect']) && $GeneralSettings['isMultipleSelect'] == 'NO'){ ?> 
+                      <?php if ((isset($GeneralSettings['payNowText']) && $GeneralSettings['payNowText'] != ''  && $GeneralSettings['payNowText'] != 'null' )) { 
+                       echo $GeneralSettings['payNowText'];
+                     }else{
+                      echo 'PAY NOW';
+                    } ?>
+                  </a>
+                <?php }else if(isset($GeneralSettings['isMultipleSelect']) && $GeneralSettings['isMultipleSelect'] == 'NO'){ ?> 
 
-                   <a href="javascript:void(0)" class="btn btn-success" style="background-color: #ffc107;padding: 5px 14px;color: #15102e;border-radius: 6px!important;font-size: 17px;font-weight: 1000;border: 0px!important;margin: 0px 8px;" onclick="CartCheckLogin('services')">
+                 <a href="javascript:void(0)" class="btn btn-success" style="background-color: #ffc107;padding: 5px 14px;color: #15102e;border-radius: 6px!important;font-size: 17px;font-weight: 1000;border: 0px!important;margin: 0px 8px;" onclick="CartCheckLogin('services')">
 
-                    <?php if ((isset($GeneralSettings['payLetterText']) && $GeneralSettings['payLetterText'] != ''  && $GeneralSettings['payLetterText'] != 'null' )) { 
-                     echo $GeneralSettings['payLetterText'];
-                   }else{
-                    echo 'BOOK NOW';
-                  } ?>
-                </a>
+                  <?php if ((isset($GeneralSettings['payLetterText']) && $GeneralSettings['payLetterText'] != ''  && $GeneralSettings['payLetterText'] != 'null' )) { 
+                   echo $GeneralSettings['payLetterText'];
+                 }else{
+                  echo 'BOOK NOW';
+                } ?>
+              </a>
 
-              <?php }else{ ?>
-               <a href="javascript:void(0)" class="btn btn-success" style="background-color: #ffc107;padding: 5px 14px;color: #15102e;border-radius: 6px!important;font-size: 17px;font-weight: 1000;border: 0px!important;margin: 0px 8px;" onclick="CartCheckLogin('services')">
-                <?php if ((isset($GeneralSettings['payNowText']) && $GeneralSettings['payNowText'] != ''  && $GeneralSettings['payNowText'] != 'null' )) { 
-                 echo $GeneralSettings['payNowText'];
-               }else{
-                echo 'BOOK NOW';
-              } ?>
-            </a>
-          <?php } ?>
+            <?php }else{ ?>
+             <a href="javascript:void(0)" class="btn btn-success" style="background-color: #ffc107;padding: 5px 14px;color: #15102e;border-radius: 6px!important;font-size: 17px;font-weight: 1000;border: 0px!important;margin: 0px 8px;" onclick="CartCheckLogin('services')">
+              <?php if ((isset($GeneralSettings['payNowText']) && $GeneralSettings['payNowText'] != ''  && $GeneralSettings['payNowText'] != 'null' )) { 
+               echo $GeneralSettings['payNowText'];
+             }else{
+              echo 'BOOK NOW';
+            } ?>
+          </a>
+        <?php } ?>
 
 
-        </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -208,19 +209,13 @@
     </div>
   </div>
 </div>
-
 <!-- //////////////////////////////// -->
-
-
 </div> 
-
 </div>
 </div>
 </div>
 </div>
-
-
-
+<div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 </section>
 <!-- End Coming Soon -->
 
@@ -241,24 +236,21 @@
 
   $(document).ready(function() {
 
+  // Custom Search Bar Start
+    $("#search").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#table tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      });
+    });
+// Custom Search Bar End
+
     // Custom Pagination
     $('.servicesDataTable').paging({limit:4});
     $("[data-page='0']").click();
-
     // TimePicker
     $('.timepicker-services').mdtimepicker();
   });
-
-
-  // Custom Search Bar Start
-  $("#search").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#table tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-// Custom Search Bar End
-
 
   $(document).on('click', '.datepicker-services', function() {
     var dayVal = $(this).attr('daytype');

@@ -47,13 +47,10 @@
   }
 </style>
 <main id="main">
-  <section  style="background:#FFF8E1;">
+  <section>
+    <div class="mt-2" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
     <center> <h2 class="bottomborder" style="font-weight:bold!important;font-size: 35px!important;">Checkout</h2> </center><br>
     <div class="container h-100">
-
-
-
-
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
           <div class="card card-registration card-registration-2 mb-4" style="border-radius: 15px;">
@@ -263,6 +260,7 @@
 </div>
 </div>
 </div>
+<div class="mt-2" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 </section>
 </main>
 
@@ -367,7 +365,7 @@
       var generalValue = parseFloat($generalInput.val().replace(/[^\d.-]/g, '')) || 0;
 
     // Get the initial total price
-      var initialTotalPrice = parseFloat(<?=$payNowTotalAmount;?>) || 0;
+      var initialTotalPrice = parseFloat(<?=@$payNowTotalAmount;?>) || 0;
 
     // Calculate the new total price
       var newTotalPrice = initialTotalPrice + acharyaValue + generalValue;
@@ -556,40 +554,41 @@
     console.log('PayPal Buttons failed to render');
   });
 
-  function BookNow(){
-    loader.on();
-    swal({
-      title: "Confirmation?",
-      text: "Are you want to Request this Service!",
-      type: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#008080",
-      confirmButtonText: "Yes",
-      closeOnConfirm: false
-    },
-    function(){
-
+ function BookNow() {
+  loader.on();
+  swal({
+    title: "Confirmation?",
+    text: "Are you sure you want to request this service?",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#008080",
+    confirmButtonText: "Yes",
+    closeOnConfirm: false
+  },
+  function(isConfirmed) {
+    if (isConfirmed) {
+      // Disable the button
+      $('.confirm').prop('disabled', true);
+      
       loader.on();
       $.ajax({
         url: "<?=base_url('Services/AddServiceRequest')?>",
         type: "POST",
         dataType: "json",
-        success: function(response) 
-        {
+        success: function(response) {
           loader.off();
           if (response.statusCode == 1) {
             swal({
               html: true,
-              title: "Service Requested Successful!",
+              title: "Service Request Successful!",
               type: "success",
               confirmButtonText: 'OK',
               confirmButtonColor: '#008080',
             },
             function(){
-             window.location.reload(); 
-           });
-
-          }else{
+              window.location.reload(); 
+            });
+          } else {
             swal({
               html: true,
               title: "Failed!",
@@ -602,15 +601,14 @@
               window.location.reload(); 
             });
           }
-
         }             
       });
+    }
+  });
+  
+  loader.off();
+}
 
-    });
-
-    loader.off();
-
-  }
 </script>
 <!-- ==========Language Translator Code============= -->
 <div class="ldld full" style="    z-index: 999;"></div>

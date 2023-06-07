@@ -43,10 +43,10 @@
 <?php
 $conatctus_data = $this->mongo_db2->where(['aspectType'=> 'contactusSettings'])->get('wesiteSettings');
 ?>
-<main id="main" style="background-color:var(--page-wrapper-bg-color)!important">
-	<section class="">
-
+<main id="main">
+	<section>
 		<div class="container">
+			<div class="mt-2" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 			<!--Section heading-->
 
 			<div class="row m-0 p-0">
@@ -63,15 +63,15 @@ $conatctus_data = $this->mongo_db2->where(['aspectType'=> 'contactusSettings'])-
 									</div>
 									<div class="row m-4">
 										<div class="col-md-3"><i class="contact-icons fa fa-map-marker"></i></div>
-										<div class="col-md-9"><?= (isset($conatctus_data[0]['refDataName']) && $conatctus_data[0]['refDataName']) != '' ? $conatctus_data[0]['refDataName'] : '390 Cumming Street Suite B, Alpharetta, GA 30004'?></div>
+										<div class="col-md-9"><?= (isset($conatctus_data[0]['refDataName']) && $conatctus_data[0]['refDataName']) != '' ? $conatctus_data[0]['refDataName'] : '4143 Ayodhya way,ljamsville, MD-21754'?></div>
 									</div>
 									<div class="row m-4">
 										<div class="col-md-3"><i class="contact-icons fa fa-phone"></i></div>
-										<div class="col-md-9"><?= (isset($conatctus_data[0]['templePhone']) && $conatctus_data[0]['templePhone']) != '' ? '+1 '.$conatctus_data[0]['templePhone'] : '+1 (770) 475-7701'?></div>
+										<div class="col-md-9"><?= (isset($conatctus_data[0]['templePhone']) && $conatctus_data[0]['templePhone']) != '' ? '+1 '.$conatctus_data[0]['templePhone'] : '301-865-5555'?></div>
 									</div>
 									<div class="row m-4">
 										<div class="col-md-3"><i class="contact-icons fa fa-envelope"></i></div>
-										<div class="col-md-9"><?= (isset($conatctus_data[0]['templeEmail']) && $conatctus_data[0]['templeEmail']) != '' ? $conatctus_data[0]['templeEmail'] : 'manager@srihanuman.org'?></div>
+										<div class="col-md-9"><?= (isset($conatctus_data[0]['templeEmail']) && $conatctus_data[0]['templeEmail']) != '' ? $conatctus_data[0]['templeEmail'] : 'sbat@sbat.org'?></div>
 									</div>
 									<div class="row m-4">
 										
@@ -212,11 +212,12 @@ $conatctus_data = $this->mongo_db2->where(['aspectType'=> 'contactusSettings'])-
 					}else{
 
 					}
-					 ?>
+					?>
 					<iframe src="<?= (isset($conatctus_data[0]['googleMapLink']) && $conatctus_data[0]['googleMapLink'] != '') ? $conatctus_data[0]['googleMapLink'] : 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d394936.350944126!2d-77.289153!3d39.346266!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c9d6a13368cda5%3A0xb2bb39abb3026ab2!2sSri%20Bhaktha%20Anjaneya%20Temple!5e0!3m2!1sen!2sus!4v1681890055074!5m2!1sen!2sus' ?>" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 				</div>
 			</div>
+			<div class="mt-2" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 		</div>
 
 	</section>

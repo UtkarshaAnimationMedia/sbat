@@ -84,12 +84,13 @@
 
 </style>
 
-<main id="main"  style="background-color:var(--page-wrapper-bg-color)!important">
+<main id="main">
 
 	<div class="container">
-		<div class="row">
+		<div class="mt-2" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
+		<div class="row mt-0 pt-0">
 			<div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<h2 id="temple-services" class="text-center bottomborder mt-5">Gallery of <?= GetProjectName(); ?></h2>
+				<h2 id="temple-services" class="text-center bottomborder">Gallery of <?= GetProjectName(); ?></h2>
 			</div>
 
 			<div align="center">
@@ -112,6 +113,7 @@
 
 
 		</div>
+		<div class="mb-2" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 	</div>
 
 

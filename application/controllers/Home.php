@@ -21,7 +21,7 @@ class Home extends CI_Controller {
 		// $data['calendar_events'] = $this->mongo_db2->where('aspectType','templeCalendar')->get('calendarCollection');
 
 		$this->mongo_db2->sort("eventDate", 'DESC');
-		$data['upcoming_events'] = $this->mongo_db2->where(['aspectType'=>'ServiceSetup','serviceCategoryTypes'=>'EVENTS', 'sourceTypes'=>'WEBSITE'])->get('businessdata');
+		$data['upcoming_events'] = $this->mongo_db2->where(['aspectType'=>'ServiceSetup','serviceCategoryTypes'=>'EVENTS', 'sourceTypes'=>'WEBSITE', 'status'=>'ACTIVE'])->get('businessdata');
 		// echo '<pre>';
 		// print_r($data['upcoming_events']);
 		$this->load->view('home',$data);

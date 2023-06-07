@@ -167,16 +167,16 @@ audio::-webkit-media-controls-panel {
           <span class="bottomborder" style="position:absolute!important;    margin-top: -12px!important; width: 50px!important;"></span>
           <p class="text-white mt-3">
            <i class="fa fa-map-marker"></i> <a href="https://maps.google.com/?q=<?= @$footer_data[0]['refDataCode'] != '' ? @$footer_data[0]['refDataCode'] : '390 Cumming Street Suite B, Alpharetta, GA 30004'?>" rel="nofollow" target="_blank" rel="nofollow"> <?=@$footer_data[0]['refDataCode']?></a><br>
-           <i class="fa fa-phone"></i> <a href='tel:<?= @$footer_data[0]['phone'] != '' ? @$footer_data[0]['phone'] : '+1 770-475-7701'?>'>     <?php
+           <i class="fa fa-phone"></i> <a href='tel:<?= @$footer_data[0]['phone'] != '' ? @$footer_data[0]['phone'] : '301-865-5555'?>'>     <?php
            if (@$footer_data[0]['phone'] != '') {
 
             echo  nl2br('+1 '.$footer_data[0]['phone']);
 
           }else{
-            echo '+1 770-475-7701';
+            echo '301-865-5555';
           }
         ?></a><br>
-        <i class="fa fa-envelope"></i> <a href='mailto:<?= @$footer_data[0]['email'] != '' ? @$footer_data[0]['email'] : 'manager@srihanuman.org'?>'>
+        <i class="fa fa-envelope"></i> <a href='mailto:<?= @$footer_data[0]['email'] != '' ? @$footer_data[0]['email'] : 'sbat@sbat.org'?>'>
           <?php
           if (@$footer_data[0]['email'] != '') {
 
@@ -184,7 +184,7 @@ audio::-webkit-media-controls-panel {
             echo @$footer_data[0]['email'];
 
           }else{
-            echo 'manager@srihanuman.org';
+            echo 'sbat@sbat.org';
           }
           ?>
         </a><br>

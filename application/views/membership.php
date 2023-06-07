@@ -3,13 +3,14 @@
 <?php $this->load->view('includes/header') ?>
 <main id="main">
 	<!-- ======= Coming Soon ======= -->
-	<section style="background-color:var(--page-wrapper-bg-color)!important">
+	<section>
+		<div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 		<div class="container" >
-			<center> <h2 class="bottomborder" style="font-weight:bold!important;font-size: 35px!important;">Membership</h2> </center><br>
-			<div class="row mb-3">
+			<center> <h2 class="bottomborder" style="font-weight:bold!important;font-size: 35px!important;">Membership</h2> </center>
+			<div class="row">
 				<div class="col-md-10 mx-auto d-block">
 					<form action="#" class="contact-form">
-							<fieldset class="border-2">
+						<fieldset class="border-2">
 							<legend  class="legend-outer  float-none w-auto"> Login Details </legend>
 							<div class="row">
 								<div class="col-md-4">
@@ -122,7 +123,7 @@
 									<fieldset class="border">
 										<legend  class="legend-inner float-none w-auto">Zip Code</legend>
 										<div class="input-group">
-										<i class="fa fa2 fa-file"></i>
+											<i class="fa fa2 fa-file"></i>
 											<input type="text" class="form-control border-0" placeholder="Zip Code*" required>
 										</div>
 									</fieldset>
@@ -178,13 +179,14 @@
 							</div>
 						</fieldset>
 
-							<div class="submit-button-wrapper my-4">
-								<input type="submit" value="SUBMIT">
-							</div>
+						<div class="submit-button-wrapper my-4">
+							<input type="submit" value="SUBMIT">
+						</div>
 					</form>
 				</div>
 			</div>
 		</div>
+		<div class="mt-3" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 	</section>
 	<!-- End Coming Soon -->
 

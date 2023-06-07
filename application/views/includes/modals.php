@@ -156,7 +156,7 @@ if ($this->session->userdata('logged_in') == 1 ) { $modalClbtn = ''; }
 
 
 
-           <ul id="tabs" class="nav nav-tabs nav-fill">
+           <ul id="tabs" class="nav nav-tabs nav-fill d-none">
             <li class="nav-item"><a href="#AdministratorTab" id="AdministratorTab" tab-name="Management" data-toggle="tab" class="nav-link rounded-0 border-0 m-0">Management</a></li>
             <li class="nav-item"><a href="#devoteeTab" id="devoteeTab" tab-name="Devotee" data-toggle="tab" class="nav-link rounded-0 active border-0 m-0">Devotee</a></li>
           </ul>
@@ -246,7 +246,8 @@ if ($this->session->userdata('logged_in') == 1 ) { $modalClbtn = ''; }
           <button type="button" class="loginBtnClose btnClose btn btn-danger ms-2" data-dismiss="modal" hidden>CLOSE</button> 
         </div>
         <div class="col-md-12 my-4">   
-          <a href="javascript:void()" onclick="openSignupModal()" id="signupLink" style="display:none">New User? Sign Up</a>
+          <!-- <a href="javascript:void()" onclick="openSignupModal()" id="signupLink" style="display:none">New User? Sign Up</a> -->
+          <a href="javascript:void()" onclick="openSignupModal()" id="signupLink">New User? Sign Up</a>
         </div>
       </div>
     </div>

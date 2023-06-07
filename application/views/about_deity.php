@@ -4,8 +4,9 @@
 <main id="main">
 
 	<!-- ======= About Committee Section ======= -->
-	<section  style="background-color: var(--page-wrapper-bg-color)!important">
+	<section>
 		<div class="container">
+			<div  style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 			<center> <h2 class="bottomborder"  style="font-weight:bold!important;font-size: 35px!important;">About Deities</h2> </center>
 			<div class="mt-4">
 
@@ -46,6 +47,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
+						<div  style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 						<h3 style="text-align:center;font-family: 'Tienne',Sans-serif !important;font-weight: 700; text-transform: capitalize; line-height: 51px;">SBAT Founders</h3>
 						<p>Our organization was established by some of the most prominent persons in the Hindu world. They were and still are the core people of our organization and the website itself.</p>
 

@@ -24,8 +24,8 @@ date_default_timezone_set('Asia/Kolkata');
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'https://srihanuman.vaaptech.com/dev';
-$config['base_url'] = 'http://localhost/sbat';
+$config['base_url'] = 'https://rihts.vaaptech.com/';
+// $config['base_url'] = 'http://localhost/sbat';
 
 /*
 |--------------------------------------------------------------------------

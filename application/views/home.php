@@ -18,11 +18,13 @@ $flash_news_data = $this->mongo_db2->where(['aspectType'=> 'flashNews'])->get('w
 		transition: 0.2sec;
 	}
 	.community-div{
-		padding: 40px;background-image: linear-gradient(89deg, #000000c9 5%, rgb(0 0 0 / 32%) 95%);overflow: hidden; background-size: cover;background-repeat: no-repeat; background-position: center;
+		padding: 40px;
+		background-image: linear-gradient(89deg, #000000 5%, rgb(0 0 0 / 32%) 95%);
+		overflow: hidden; 
+		background-size: cover;
+		background-repeat: no-repeat; 
+		background-position: center;
 	}
-
-
-
 	.card-header{
 		background-color:var(--headerFooter)!important;
 		padding: 8px 0px 8px 0px;
@@ -85,11 +87,12 @@ $flash_news_data = $this->mongo_db2->where(['aspectType'=> 'flashNews'])->get('w
 
 <main id="main">
 	<!-- ======= Temple Services Section ======= -->
-	<section id="temple-services" class="temple-services" style="background-color: var(--page-wrapper-bg-color)!important;">
+	<section id="temple-services" class="temple-services">
+		<div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-sm-6">
-					<div class="card shadow-lg mb-5" style="background-color: var(--home-card-bg);max-height: 600px;min-height: 450px;">
+					<div class="card shadow-lg" style="background-color: var(--home-card-bg);max-height: 600px;min-height: 450px;">
 
 						<div class="card-body text-center p-0 m-0">
 							<h3 class="card-header bottomborder"  style="background-color:var(--headerFooter)!important;;padding: 11px; font-weight: 700!important; text-shadow: 1px 0px 0px #ff2c00;">FLASH NEWS</h3>
@@ -160,8 +163,7 @@ $flash_news_data = $this->mongo_db2->where(['aspectType'=> 'flashNews'])->get('w
 															<div class="row mx-0 px-0">
 																<div class="col-md-3 mx-0">
 																	<a href="<?=base_url('event/'.urlencode($val['refDataName']).'/'.$val['_id'])?>">
-																		<img src="<?=$val['Image'] ? ApiBaseUrl()['url'].$val['Image'] : base_url
-																		('assets/img/srihanuman-watermark.png');?>" class="rounded shadow" style="width: 70px;height:70px">
+																		<img src="<?=$val['Image'] ? ApiBaseUrl()['url'].$val['Image'] : 'https://aspgen.vaaptech.com:9000//uploads/profile/image-1681883863414-406355098.png' ?>" class="rounded shadow" style="width: 70px;height:70px">
 																	</a>
 																</div>
 																<div class="col-md-9 m-auto px-0">
@@ -184,13 +186,10 @@ $flash_news_data = $this->mongo_db2->where(['aspectType'=> 'flashNews'])->get('w
 																						<a href="<?=base_url('event/'.urlencode($val['refDataName']).'/'.$val['_id'])?>">
 
 																							<?php
-
-
 																							echo 	format_event_date($val['startDate'] , $val['endDate'], $val['startTime'], $val['endTime']);
 
 																							?>
 																						</a>
-
 																					</span>
 																				</div>
 																				<div class="col-md-4 px-2 p-0">
@@ -239,9 +238,26 @@ $flash_news_data = $this->mongo_db2->where(['aspectType'=> 'flashNews'])->get('w
 						transform: translate(-50%, -50%);
 						color: white!important;
 					}
+					.centered1 {
+						position: absolute;
+						top: 50%;
+						left: 49%;
+						font-size: 25px;
+						transform: translate(-11%, -57%);
+						color: white!important;
+					}
+					.centered2 {
+						position: absolute;
+						top: 50%;
+						left: 49%;
+						font-size: 25px;
+						transform: translate(-75%, -59%);
+						color: white!important;
+					}
 				</style>
 
-				<section  class="temple-services" style="background-color: var(--page-wrapper-bg-color)!important;">
+				<section  class="temple-services">
+					<div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 
 					<div class="container">
 						<div class="row">
@@ -251,7 +267,7 @@ $flash_news_data = $this->mongo_db2->where(['aspectType'=> 'flashNews'])->get('w
 								<p style="text-align: left;font-size:15px!important; color: black!important; font-weight: 100; line-height: 2;">Sri Bhakta Anjaneya Temple’s (SBAT) mission is to provide authentic religious service per the sastras to help individuals, families and the community at large. The mission also is to preserve and propagate the learning of the Vedas, Sastras, Puranas, Hindu traditions and to imbibe the Sanatana dharma values, culture and heritage into the future generations.
 								</p><br>
 								<p style="text-align: left;font-size:15px!important; color: black!important; font-weight: 100; line-height: 2;">
-								Our organization was established by some of the most prominent persons in the Hindu world. They were and still are the core people of our organization and the website itself.
+									Our organization was established by some of the most prominent persons in the Hindu world. They were and still are the core people of our organization and the website itself.
 								</p>
 								<center><a href="<?=base_url('about-temple')?>" class="in-page-btn loader btn btn-primary my-3">
 								KNOW MORE</a>
@@ -274,23 +290,25 @@ $flash_news_data = $this->mongo_db2->where(['aspectType'=> 'flashNews'])->get('w
 			<!-- End Temple Services Section -->
 
 			<!-- ======= Temple Services Section ======= -->
-			<section  class="temple-services" style="padding:15px 0px;background-color: var(--page-wrapper-bg-color)!important;">
+			<section  class="temple-services">
+				<div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 				<div class="container-fluid">
-					<h2 id="temple-services" class="text-center bottomborder title"><?= GetProjectName(); ?></h2>
+					<h2 id="temple-services" class="text-center bottomborder title"><?= GetProjectName(); ?> Services</h2>
 					<p class="text-center">Our Sri Bhaktha Anjaneya Temple has a dedicated team of experienced priests with specialized knowledge in various branches of Hindu rituals.</p>
 					<div class="row pt-5 text-center">
 						<div class="col-md-1"></div>
 						<div class="col-md-5" data-aos="fade-right">
-							<img src="<?=base_url('assets/img/temple-services/in-temple-Service.jpg');?>" class="img-fluid shadow-lg mb-5 rounded" style="float: right;width:100%;">
-							<a href="<?=base_url('services')?>" class="loader"><h2 class="centered">In Temple Services</h2></a>
+							<img src="<?=base_url('assets/img/temple-services/in-temple-Service.jpg');?>" class="img-fluid shadow-lg mb-5 rounded" style="float: right;width:70%;">
+							<a href="<?=base_url('services')?>" class="loader"><h2 class="centered1">In Temple Services</h2></a>
 						</div>
 						<div class="col-md-5" data-aos="fade-left">
-							<img src="<?=base_url('assets/img/temple-services/away-temple-service.jpg');?>" class="img-fluid shadow-lg mb-5 rounded" style="float: left;width:100%;">
-							<a href="<?=base_url('services')?>" class="loader"><h2 class="centered">Outside Temple Services</h2></a>
+							<img src="<?=base_url('assets/img/temple-services/away-temple-service.jpg');?>" class="img-fluid shadow-lg mb-5 rounded" style="float: left;width:70%;">
+							<a href="<?=base_url('services')?>" class="loader"><h2 class="centered2">Outside Temple Services</h2></a>
 						</div>
 						<div class="col-md-1"></div>
 					</div>
 				</div>
+				<div style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 			</section><!-- End Temple Services Section -->
 
 
@@ -298,7 +316,7 @@ $flash_news_data = $this->mongo_db2->where(['aspectType'=> 'flashNews'])->get('w
 			<section id="community" class="community p-0 m-0" style="background-image: linear-gradient(var(--page-wrapper-bg-color), white);">
 				<div class="container-fluid p-0 m-0">
 					<div class="row text-center p-0 m-0">
-						<div class="col-md-4 col-lg-4 p-0 m-0" style="background-image: url('<?=base_url('assets/img/pada.jpg');?>');background-size: cover;background-repeat: no-repeat;">
+						<div class="col-md-4 col-lg-4 p-0 m-0" style="background-image: url('https://sbat.org/images/ASannidhi1.jpg');background-size: cover;background-repeat: no-repeat;">
 
 							<div class=" text-white community-div" style="">
 								<h4 class="title">Urgent Causes</h4>

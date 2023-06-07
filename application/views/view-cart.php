@@ -50,7 +50,8 @@
 	}
 </style>
 <main id="main">
-	<section  style="background-image: linear-gradient(var(--page-wrapper-bg-color), white);">
+	<section >
+		<div class="mt-2" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<?php $cart_items = $this->session->userdata($session_data); 
 
@@ -96,7 +97,7 @@
 						<tr style=" background: white; <?= $cart_items['payment_btn_check'][$key] != 'PAY-NOW'? 'display:none' : ''; ?>" class="servicesTr <?= $cart_items['payment_btn_check'][$key]; ?>">
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="<?=ApiBaseUrl()['url'].$cart_items['image'][$key]; ?>" alt="<?=$cart_items['serviceName'][$key]; ?>" height="50px" width="80px"/></div>
+									<div class="col-sm-2 hidden-xs"><img src="<?= $cart_items['image'][$key] ? ApiBaseUrl()['url'].$cart_items['image'][$key] : 'https://aspgen.vaaptech.com:9000//uploads/profile/image-1681883863414-406355098.png'; ?>" alt="<?=$cart_items['serviceName'][$key]; ?>" height="50px" width="auto"/></div>
 									<div class="col-sm-10">
 										<h4 class="nomargin"><?=$cart_items['serviceName'][$key]; ?></h4>
 									</div>
@@ -131,6 +132,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="mt-4" style="padding: 40px 0px;background-image: url('<?=base_url('assets/img/botdownloader.com-1686119799.482487.jpg');?>'); background-size: 25%; background-repeat: repeat-x;"></div>
 </section>
 </main>
 
